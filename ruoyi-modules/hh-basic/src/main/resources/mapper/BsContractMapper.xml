@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hh.pms.cm.mapper.BsContractMapper">
+
+    <resultMap type="com.hh.pms.cm.domain.BsContract" id="BsContractResult">
+        <result property="eid" column="eid"/>
+        <result property="hid" column="hid"/>
+        <result property="sid" column="sid"/>
+        <result property="gid" column="gid"/>
+        <result property="eHcode" column="e_hcode"/>
+        <result property="eHname" column="e_hname"/>
+        <result property="eStatus" column="e_status"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="eDeliveryTime" column="e_delivery_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="oHstatus" column="o_hstatus"/>
+        <result property="eType" column="e_type"/>
+        <result property="eCon" column="e_con"/>
+        <result property="eStartdate" column="e_startDate"/>
+        <result property="eEnddate" column="e_endDate"/>
+        <result property="eAmount" column="e_amount"/>
+        <result property="eDescription" column="e_description"/>
+        <result property="eOpinion" column="e_opinion"/>
+        <result property="eImage" column="e_image"/>
+        <result property="eDocuments" column="e_documents"/>
+        <result property="eCancel" column="e_cancel"/>
+        <association property="bsSupplier">
+            <id property="hid" column="hid"/>
+            <result property="zrId" column="zr_id"/>
+            <result property="hName" column="h_name"/>
+            <result property="hCreditCode" column="h_credit_code"/>
+            <result property="hIncorporation" column="h_incorporation"/>
+            <result property="hInstitution" column="h_institution"/>
+            <result property="hQuality" column="h_quality"/>
+            <result property="hStartTime" column="h_start_time"/>
+            <result property="hJuridical" column="h_juridical"/>
+            <result property="hJuridicalIdentity" column="h_juridical_identity"/>
+            <result property="hAddress" column="h_address"/>
+            <result property="hRange" column="h_range"/>
+            <result property="hDesc" column="h_desc"/>
+            <result property="hCopies" column="h_copies"/>
+            <result property="hJuridicalCopies" column="h_juridical_copies"/>
+            <result property="hExpiration" column="h_expiration"/>
+            <result property="hBank" column="h_bank"/>
+            <result property="hAccount" column="h_account"/>
+            <result property="hBankAddress" column="h_bank_address"/>
+            <result property="hSignPhone" column="h_sign_phone"/>
+            <result property="hSignAddress" column="h_sign_address"/>
+            <result property="hCapital" column="h_capital"/>
+            <result property="hActualCapital" column="h_actual_capital"/>
+            <result property="hProve" column="h_prove"/>
+            <result property="fStatus" column="f_status"/>
+            <result property="fOpinion" column="f_opinion"/>
+            <result property="fState" column="f_state"/>
+            <result property="fClassify" column="f_classify"/>
+        </association>
+    </resultMap>
+
+    <sql id="selectBsContractVo">
+        select eid,
+               hid,
+               sid,
+               gid,
+               e_hcode,
+               e_hname,
+               e_status,
+               create_by,
+               create_time,
+               e_delivery_time,
+               update_by,
+               update_time,
+               o_hstatus,
+               e_type,
+               e_con,
+               e_startDate,
+               e_endDate,
+               e_amount,
+               e_description,
+               e_opinion,
+               e_image,
+               e_documents,
+               e_cancel
+        from bs_contract
+    </sql>
+
+    <select id="selectBsContractList" parameterType="com.hh.pms.cm.domain.BsContract" resultMap="BsContractResult">
+        select * from bs_contract c
+        inner join bs_supplier s on c.hid = s.hid
+        <where>
+            <if test="hid != null ">and c.hid = #{hid}</if>
+            <if test="eHcode != null  and eHcode != ''">and e_hcode like concat('%', #{eHcode}, '%')</if>
+            <if test="eHname != null  and eHname != ''">and e_hname like concat('%', #{eHname}, '%')</if>
+            <if test="eStatus != null ">and e_status = #{eStatus}</if>
+            <if test="eDeliveryTime != null ">and e_delivery_time = #{eDeliveryTime}</if>
+            <if test="oHstatus != null ">and o_hstatus = #{oHstatus}</if>
+            <if test="eType != null ">and e_type = #{eType}</if>
+            <if test="eCon != null ">and e_con = #{eCon}</if>
+            <if test="eStartdate != null ">and e_startDate = #{eStartdate}</if>
+            <if test="eEnddate != null ">and e_endDate = #{eEnddate}</if>
+            <if test="eAmount != null ">and e_amount = #{eAmount}</if>
+            <if test="eDescription != null  and eDescription != ''">and e_description = #{eDescription}</if>
+            <if test="eOpinion != null  and eOpinion != ''">and e_opinion = #{eOpinion}</if>
+            <if test="eImage != null  and eImage != ''">and e_image = #{eImage}</if>
+            <if test="eDocuments != null  and eDocuments != ''">and e_documents = #{eDocuments}</if>
+            <if test="eCancel != null ">and e_cancel = #{eCancel}</if>
+        </where>
+        order by c.create_time desc
+    </select>
+
+    <select id="selectBsContractByEid" parameterType="Long" resultMap="BsContractResult">
+        <include refid="selectBsContractVo"/>
+        where eid = #{eid}
+    </select>
+
+    <insert id="insertBsContract" parameterType="com.hh.pms.cm.domain.BsContract" keyProperty="eid"
+            useGeneratedKeys="true">
+        insert into bs_contract
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="eid != null">eid,</if>
+            <if test="hid != null">hid,</if>
+            <if test="sid != null">sid,</if>
+            <if test="gid != null">gid,</if>
+            <if test="eHcode != null">e_hcode,</if>
+            <if test="eHname != null">e_hname,</if>
+            <if test="eStatus != null">e_status,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="eDeliveryTime != null">e_delivery_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="oHstatus != null">o_hstatus,</if>
+            <if test="eType != null">e_type,</if>
+            <if test="eCon != null">e_con,</if>
+            <if test="eStartdate != null">e_startDate,</if>
+            <if test="eEnddate != null">e_endDate,</if>
+            <if test="eAmount != null">e_amount,</if>
+            <if test="eDescription != null">e_description,</if>
+            <if test="eOpinion != null">e_opinion,</if>
+            <if test="eImage != null">e_image,</if>
+            <if test="eDocuments != null">e_documents,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="eid != null">#{eid},</if>
+            <if test="hid != null">#{hid},</if>
+            <if test="sid != null">#{sid},</if>
+            <if test="gid != null">#{gid},</if>
+            <if test="eHcode != null">#{eHcode},</if>
+            <if test="eHname != null">#{eHname},</if>
+            <if test="eStatus != null">#{eStatus},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="eDeliveryTime != null">#{eDeliveryTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="oHstatus != null">#{oHstatus},</if>
+            <if test="eType != null">#{eType},</if>
+            <if test="eCon != null">#{eCon},</if>
+            <if test="eStartdate != null">#{eStartdate},</if>
+            <if test="eEnddate != null">#{eEnddate},</if>
+            <if test="eAmount != null">#{eAmount},</if>
+            <if test="eDescription != null">#{eDescription},</if>
+            <if test="eOpinion != null">#{eOpinion},</if>
+            <if test="eImage != null">#{eImage},</if>
+            <if test="eDocuments != null">#{eDocuments},</if>
+        </trim>
+    </insert>
+
+    <insert id="insertComPubAttachments" parameterType="com.hh.pms.cm.domain.ComPubAttachments">
+        insert into com_pub_attachments
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="anId != null">an_id,</if>
+            <if test="aid != null">aid,</if>
+            <if test="jhid != null">jhid,</if>
+            <if test="eid != null">eid,</if>
+            <if test="anName != null">an_name,</if>
+            <if test="anType != null">an_type,</if>
+            <if test="anDan != null">an_dan,</if>
+            <if test="anUrl != null">an_url,</if>
+            <if test="anSize != null">an_size,</if>
+            <if test="anUploadTime != null">an_upload_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="anId != null">#{anId},</if>
+            <if test="aid != null">#{aid},</if>
+            <if test="jhid != null">#{jhid},</if>
+            <if test="eid != null">#{eid},</if>
+            <if test="anName != null">#{anName},</if>
+            <if test="anType != null">#{anType},</if>
+            <if test="anDan != null">#{anDan},</if>
+            <if test="anUrl != null">#{anUrl},</if>
+            <if test="anSize != null">#{anSize},</if>
+            <if test="anUploadTime != null">#{anUploadTime},</if>
+        </trim>
+    </insert>
+
+    <update id="updateBsContract" parameterType="com.hh.pms.cm.domain.BsContract">
+        update bs_contract
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="hid != null">hid = #{hid},</if>
+            <if test="eHcode != null">e_hcode = #{eHcode},</if>
+            <if test="eHname != null">e_hname = #{eHname},</if>
+            <if test="eStatus != null">e_status = #{eStatus},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="eDeliveryTime != null">e_delivery_time = #{eDeliveryTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="oHstatus != null">o_hstatus = #{oHstatus},</if>
+            <if test="eType != null">e_type = #{eType},</if>
+            <if test="eCon != null">e_con = #{eCon},</if>
+            <if test="eStartdate != null">e_startDate = #{eStartdate},</if>
+            <if test="eEnddate != null">e_endDate = #{eEnddate},</if>
+            <if test="eAmount != null">e_amount = #{eAmount},</if>
+            <if test="eDescription != null">e_description = #{eDescription},</if>
+            <if test="eOpinion != null">e_opinion = #{eOpinion},</if>
+            <!--            <if test="eImage != null">e_image = #{eImage},</if>-->
+            <!--            <if test="eDocuments != null">e_documents = #{eDocuments},</if>-->
+            e_image = #{eImage},
+            e_documents = #{eDocuments}
+        </trim>
+        where eid = #{eid}
+    </update>
+
+    <update id="updateoHstatus" parameterType="com.hh.pms.cm.domain.BsContract">
+        update bs_contract
+        set o_hstatus = #{oHstatus}
+        where eid = #{eid}
+    </update>
+
+    <delete id="deleteBsContractByEid" parameterType="Long">
+        delete
+        from bs_contract
+        where eid = #{eid}
+    </delete>
+
+    <delete id="deleteBsContractByEids" parameterType="String">
+        delete from bs_contract where eid in
+        <foreach item="eid" collection="array" open="(" separator="," close=")">
+            #{eid}
+        </foreach>
+    </delete>
+
+    <update id="updateBidTenderEid" parameterType="com.hh.pms.cm.domain.BidTender">
+        update bid_tender
+        set eid = #{eid}
+        where sid = #{sid}
+    </update>
+
+    <!--修改非招标项目里的eid-->
+    <update id="updateNobidNonProSid" parameterType="com.hh.pms.sae.domain.NobidNonPro">
+        update nobid_non_pro
+        set eid = #{eid}
+        where gid = #{gid}
+    </update>
+
+    <select id="selectBidTenderBySid" resultType="com.hh.pms.cm.domain.BsContract">
+        SELECT *
+        FROM bs_contract
+        WHERE eid = #{eid}
+    </select>
+
+    <update id="updateComPubAttachments" parameterType="com.hh.pms.cm.domain.ComPubAttachments">
+        update com_pub_attachments
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="aid != null">aid = #{aid},</if>
+            <if test="jhid != null">jhid = #{jhid},</if>
+            <if test="anName != null">an_name = #{anName},</if>
+            <if test="anType != null">an_type = #{anType},</if>
+            <if test="anDan != null">an_dan = #{anDan},</if>
+            <if test="anUrl != null">an_url = #{anUrl},</if>
+            <if test="anSize != null">an_size = #{anSize},</if>
+            <if test="anUploadTime != null">an_upload_time = #{anUploadTime},</if>
+        </trim>
+        where eid = #{eid}
+    </update>
+
+    <delete id="deleteComPubAttamentsByEid">
+        DELETE
+        FROM com_pub_attachments
+        WHERE eid = #{eid}
+    </delete>
+
+    <!--查询公共附件-->
+    <select id="selectComPubAttachmentsByEid" resultType="com.hh.pms.cm.domain.ComPubAttachments">
+        select *
+        from com_pub_attachments
+        where eid = #{eid}
+    </select>
+
+    <select id="selectSid" resultType="java.lang.Long">
+        select sid
+        from bid_tender
+        where eid = #{eid}
+    </select>
+
+    <!--修改招标Eid为空-->
+    <update id="updateBidTender" parameterType="com.hh.pms.cm.domain.BidTender">
+        update bid_tender
+        set eid = null
+        where eid = #{eid}
+    </update>
+
+    <!--修改非招标Eid为空-->
+    <update id="updateNobidNonPro" parameterType="com.hh.pms.sae.domain.NobidNonPro">
+        update nobid_non_pro
+        set eid = null
+        where eid = #{eid}
+    </update>
+
+    <!--作废-->
+    <update id="updateHtCancel" parameterType="com.hh.pms.cm.domain.BsContract">
+        update bs_contract
+        set e_cancel = 1
+        where eid = #{eid}
+    </update>
+
+    <!--查询非招标签定中项目-->
+    <select id="selectBsContractList1" parameterType="com.hh.pms.cm.domain.BsContract" resultMap="BsContractResult">
+        select * from bs_contract c
+        inner join bs_supplier s on c.hid = s.hid
+        <where>
+            gid is not null
+            <if test="hid != null ">and c.hid = #{hid}</if>
+            <if test="eHcode != null  and eHcode != ''">and e_hcode like concat('%', #{eHcode}, '%')</if>
+            <if test="eHname != null  and eHname != ''">and e_hname like concat('%', #{eHname}, '%')</if>
+            <if test="eStatus != null ">and e_status = #{eStatus}</if>
+            <if test="eDeliveryTime != null ">and e_delivery_time = #{eDeliveryTime}</if>
+            <if test="oHstatus != null ">and o_hstatus = #{oHstatus}</if>
+            <if test="eType != null ">and e_type = #{eType}</if>
+            <if test="eCon != null ">and e_con = #{eCon}</if>
+            <if test="eStartdate != null ">and e_startDate = #{eStartdate}</if>
+            <if test="eEnddate != null ">and e_endDate = #{eEnddate}</if>
+            <if test="eAmount != null ">and e_amount = #{eAmount}</if>
+            <if test="eDescription != null  and eDescription != ''">and e_description = #{eDescription}</if>
+            <if test="eOpinion != null  and eOpinion != ''">and e_opinion = #{eOpinion}</if>
+            <if test="eImage != null  and eImage != ''">and e_image = #{eImage}</if>
+            <if test="eDocuments != null  and eDocuments != ''">and e_documents = #{eDocuments}</if>
+            <if test="eCancel != null ">and e_cancel = #{eCancel}</if>
+        </where>
+        order by c.create_time desc
+    </select>
+
+    <!--查询招标签定中项目-->
+    <select id="selectBsContractList2" parameterType="com.hh.pms.cm.domain.BsContract" resultMap="BsContractResult">
+        select * from bs_contract c
+        inner join bs_supplier s on c.hid = s.hid
+        <where>
+            sid is not null
+            <if test="hid != null ">and c.hid = #{hid}</if>
+            <if test="eHcode != null  and eHcode != ''">and e_hcode like concat('%', #{eHcode}, '%')</if>
+            <if test="eHname != null  and eHname != ''">and e_hname like concat('%', #{eHname}, '%')</if>
+            <if test="eStatus != null ">and e_status = #{eStatus}</if>
+            <if test="eDeliveryTime != null ">and e_delivery_time = #{eDeliveryTime}</if>
+            <if test="oHstatus != null ">and o_hstatus = #{oHstatus}</if>
+            <if test="eType != null ">and e_type = #{eType}</if>
+            <if test="eCon != null ">and e_con = #{eCon}</if>
+            <if test="eStartdate != null ">and e_startDate = #{eStartdate}</if>
+            <if test="eEnddate != null ">and e_endDate = #{eEnddate}</if>
+            <if test="eAmount != null ">and e_amount = #{eAmount}</if>
+            <if test="eDescription != null  and eDescription != ''">and e_description = #{eDescription}</if>
+            <if test="eOpinion != null  and eOpinion != ''">and e_opinion = #{eOpinion}</if>
+            <if test="eImage != null  and eImage != ''">and e_image = #{eImage}</if>
+            <if test="eDocuments != null  and eDocuments != ''">and e_documents = #{eDocuments}</if>
+            <if test="eCancel != null ">and e_cancel = #{eCancel}</if>
+        </where>
+        order by c.create_time desc
+    </select>
+
+</mapper>

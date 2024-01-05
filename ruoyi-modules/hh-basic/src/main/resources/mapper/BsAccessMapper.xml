@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hh.pms.sae.mapper.BsAccessMapper">
+
+    <resultMap type="com.hh.pms.sae.domain.BsAccess" id="BsAccessResult">
+        <result property="zrId" column="zr_id"/>
+        <result property="zrBnumber" column="zr_bnumber"/>
+        <result property="zrPromoter" column="zr_promoter"/>
+        <result property="zrTime" column="zr_time"/>
+        <association property="bsSupplier">
+            <id property="hid" column="hid"/>
+            <result property="zrId" column="zr_id"/>
+            <result property="hName" column="h_name"/>
+            <result property="hCreditCode" column="h_credit_code"/>
+            <result property="hIncorporation" column="h_incorporation"/>
+            <result property="hInstitution" column="h_institution"/>
+            <result property="hQuality" column="h_quality"/>
+            <result property="hStartTime" column="h_start_time"/>
+            <result property="hJuridical" column="h_juridical"/>
+            <result property="hJuridicalIdentity" column="h_juridical_identity"/>
+            <result property="hAddress" column="h_address"/>
+            <result property="hRange" column="h_range"/>
+            <result property="hDesc" column="h_desc"/>
+            <result property="hCopies" column="h_copies"/>
+            <result property="hJuridicalCopies" column="h_juridical_copies"/>
+            <result property="hExpiration" column="h_expiration"/>
+            <result property="hBank" column="h_bank"/>
+            <result property="hAccount" column="h_account"/>
+            <result property="hBankAddress" column="h_bank_address"/>
+            <result property="hSignPhone" column="h_sign_phone"/>
+            <result property="hSignAddress" column="h_sign_address"/>
+            <result property="hCapital" column="h_capital"/>
+            <result property="hActualCapital" column="h_actual_capital"/>
+            <result property="hProve" column="h_prove"/>
+            <result property="fStatus" column="f_status"/>
+            <result property="fOpinion" column="f_opinion"/>
+            <result property="fState" column="f_state"/>
+            <result property="fClassify" column="f_classify"/>
+        </association>
+    </resultMap>
+
+    <sql id="selectBsAccessVo">
+        select zr_id, zr_bnumber, zr_promoter, zr_time
+        from bs_access
+    </sql>
+
+    <select id="selectBsAccessList" parameterType="com.hh.pms.sae.domain.BsAccess" resultMap="BsAccessResult">
+        select * from bs_access a
+        inner join bs_supplier s on a.zr_id = s.zr_id
+        <where>
+            <if test="zrBnumber != null  and zrBnumber != ''">and zr_bnumber = #{zrBnumber}</if>
+            <if test="zrPromoter != null  and zrPromoter != ''">and zr_promoter like concat('%',#{zrPromoter},'%')</if>
+            <if test="zrTime != null">
+                and DATE(zr_time) = #{zrTime}
+            </if>
+        </where>
+        order by zr_time desc
+    </select>
+
+    <select id="selectBsAccessByZrId" parameterType="Long" resultMap="BsAccessResult">
+        <include refid="selectBsAccessVo"/>
+        where zr_id = #{zrId}
+    </select>
+
+    <insert id="insertBsAccess" parameterType="com.hh.pms.sae.domain.BsAccess" useGeneratedKeys="true"
+            keyProperty="zrId">
+        insert into bs_access
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="zrBnumber != null">zr_bnumber,</if>
+            <if test="zrPromoter != null">zr_promoter,</if>
+            <if test="zrTime != null">zr_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="zrBnumber != null">#{zrBnumber},</if>
+            <if test="zrPromoter != null">#{zrPromoter},</if>
+            <if test="zrTime != null">#{zrTime},</if>
+        </trim>
+    </insert>
+
+    <update id="updateBsAccess" parameterType="com.hh.pms.sae.domain.BsAccess">
+        update bs_access
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="zrBnumber != null">zr_bnumber = #{zrBnumber},</if>
+            <if test="zrPromoter != null">zr_promoter = #{zrPromoter},</if>
+            <if test="zrTime != null">zr_time = #{zrTime},</if>
+        </trim>
+        where zr_id = #{zrId}
+    </update>
+
+    <delete id="deleteBsAccessByZrId" parameterType="Long">
+        delete
+        from bs_access
+        where zr_id = #{zrId}
+    </delete>
+
+    <delete id="deleteBsAccessByZrIds" parameterType="String">
+        delete from bs_access where zr_id in
+        <foreach item="zrId" collection="array" open="(" separator="," close=")">
+            #{zrId}
+        </foreach>
+    </delete>
+</mapper>
