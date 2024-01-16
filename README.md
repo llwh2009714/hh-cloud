@@ -1,5 +1,5 @@
 <p align="center">
-	<img height="100px" alt="logo" src="./hh-img/logo.png">
+	<img height="100px" alt="logo" src="hh-img/logo.png">
 </p>
 <h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">HongHu v1.0.1</h1>
 <h4 align="center">基于 Vue/Element UI 和 Spring Boot/Spring Cloud & Alibaba 前后端分离的分布式微服务架构</h4>
@@ -88,40 +88,40 @@
 
 <table>
     <tr>
-        <td><img src="./hh-img/zj-sh.png"/></td>
-        <td><img src="./hh-img/zjrk.png"/></td>
+        <td><img src="hh-img/zj-sh.png"/></td>
+        <td><img src="hh-img/zjrk.png"/></td>
     </tr>
     <tr>
-        <td><img src="./hh-img/tender.png"/></td>
-        <td><img src="./hh-img/tender-go.png"/></td>
+        <td><img src="hh-img/tender.png"/></td>
+        <td><img src="hh-img/tender-go.png"/></td>
     </tr>
     <tr>
-        <td><img src="./hh-img/tender-cqzj.png"/></td>
-        <td><img src="./hh-img/tender-addNotice.png"/></td>
+        <td><img src="hh-img/tender-cqzj.png"/></td>
+        <td><img src="hh-img/tender-addNotice.png"/></td>
     </tr>
 	<tr>
-        <td><img src="./hh-img/ppmPlan.png"/></td>
-        <td><img src="./hh-img/ppmPlan-sp.png"/></td>
+        <td><img src="hh-img/ppmPlan.png"/></td>
+        <td><img src="hh-img/ppmPlan-sp.png"/></td>
     </tr>	 
     <tr>
-        <td><img src="./hh-img/nobid-list.png"/></td>
-        <td><img src="./hh-img/nobid-ht.png"/></td>
+        <td><img src="hh-img/nobid-list.png"/></td>
+        <td><img src="hh-img/nobid-ht.png"/></td>
     </tr>
 	<tr>
-        <td><img src="./hh-img/menu.png"/></td>
-        <td><img src="./hh-img/login.png"/></td>
+        <td><img src="hh-img/menu.png"/></td>
+        <td><img src="hh-img/login.png"/></td>
     </tr>
 	<tr>
-        <td><img src="./hh-img/kjxy.png"/></td>
-        <td><img src="./hh-img/kjxy-xd.png"/></td>
+        <td><img src="hh-img/kjxy.png"/></td>
+        <td><img src="hh-img/kjxy-xd.png"/></td>
     </tr>
 	<tr>
-        <td><img src="./hh-img/kjPlan.png"/></td>
-        <td><img src="./hh-img/ht-list.png"/></td>
+        <td><img src="hh-img/kjPlan.png"/></td>
+        <td><img src="hh-img/ht-list.png"/></td>
     </tr>
     <tr>
-        <td><img src="./hh-img/hh-ztppt.png"/></td>
-        <td><img src="./hh-img/hh-ztp-detail.png"/></td>
+        <td><img src="hh-img/hh-ztppt.png"/></td>
+        <td><img src="hh-img/hh-ztp-detail.png"/></td>
     </tr>
 </table>
 
