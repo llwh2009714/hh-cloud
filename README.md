@@ -129,6 +129,5 @@
 
 <p align="center">
     <img width="200px" src="hh-img/wx.jpg">
-    &nbsp &nbsp
     <img width="200px" src="hh-img/qq.jpg">
 </p>
