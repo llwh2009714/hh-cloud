@@ -41,8 +41,8 @@ module.exports = {
           ['^' + process.env.VUE_APP_BASE_API]: ''
         }
       }
-    },
-    disableHostCheck: true
+    }
+    //disableHostCheck: true
   },
   css: {
     loaderOptions: {
@@ -56,7 +56,10 @@ module.exports = {
     resolve: {
       alias: {
         '@': resolve('src')
-      }
+      },
+      fallback: {
+        path: require.resolve("path-browserify"),
+      },
     },
     plugins: [
       // http://doc.ruoyi.vip/ruoyi-vue/other/faq.html#使用gzip解压缩静态文件
