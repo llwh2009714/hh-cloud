@@ -1,0 +1,184 @@
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="renderer" content="webkit"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel="icon" href="/favicon.ico"><title>鸿鹄采购管理系统</title><!--[if lt IE 11]><script>window.location.href='/html/ie.html';</script><![endif]--><style>html,
+    body,
+    #app {
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+    .chromeframe {
+      margin: 0.2em 0;
+      background: #ccc;
+      color: #000;
+      padding: 0.2em 0;
+    }
+
+    #loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999999;
+    }
+
+    #loader {
+      display: block;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      width: 150px;
+      height: 150px;
+      margin: -75px 0 0 -75px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -webkit-animation: spin 2s linear infinite;
+      -ms-animation: spin 2s linear infinite;
+      -moz-animation: spin 2s linear infinite;
+      -o-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+      z-index: 1001;
+    }
+
+    #loader:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -webkit-animation: spin 3s linear infinite;
+      -moz-animation: spin 3s linear infinite;
+      -o-animation: spin 3s linear infinite;
+      -ms-animation: spin 3s linear infinite;
+      animation: spin 3s linear infinite;
+    }
+
+    #loader:after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -moz-animation: spin 1.5s linear infinite;
+      -o-animation: spin 1.5s linear infinite;
+      -ms-animation: spin 1.5s linear infinite;
+      -webkit-animation: spin 1.5s linear infinite;
+      animation: spin 1.5s linear infinite;
+    }
+
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+
+    #loader-wrapper .loader-section {
+      position: fixed;
+      top: 0;
+      width: 51%;
+      height: 100%;
+      background: #7171C6;
+      z-index: 1000;
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+
+    #loader-wrapper .loader-section.section-left {
+      left: 0;
+    }
+
+    #loader-wrapper .loader-section.section-right {
+      right: 0;
+    }
+
+
+    .loaded #loader-wrapper .loader-section.section-left {
+      -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      transform: translateX(-100%);
+      -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader-wrapper .loader-section.section-right {
+      -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      transform: translateX(100%);
+      -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader {
+      opacity: 0;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .loaded #loader-wrapper {
+      visibility: hidden;
+      -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      transform: translateY(-100%);
+      -webkit-transition: all 0.3s 1s ease-out;
+      transition: all 0.3s 1s ease-out;
+    }
+
+    .no-js #loader-wrapper {
+      display: none;
+    }
+
+    .no-js h1 {
+      color: #222222;
+    }
+
+    #loader-wrapper .load_title {
+      font-family: 'Open Sans';
+      color: #FFF;
+      font-size: 19px;
+      width: 100%;
+      text-align: center;
+      z-index: 9999999999999;
+      position: absolute;
+      top: 60%;
+      opacity: 1;
+      line-height: 30px;
+    }
+
+    #loader-wrapper .load_title span {
+      font-weight: normal;
+      font-style: italic;
+      font-size: 13px;
+      color: #FFF;
+      opacity: 0.5;
+    }</style><script>(function(){"use strict";var e={},n={};function t(r){var a=n[r];if(void 0!==a)return a.exports;var c=n[r]={id:r,loaded:!1,exports:{}};return e[r].call(c.exports,c,c.exports,t),c.loaded=!0,c.exports}t.m=e,function(){t.amdO={}}(),function(){var e=[];t.O=function(n,r,a,c){if(!r){var f=1/0;for(d=0;d<e.length;d++){r=e[d][0],a=e[d][1],c=e[d][2];for(var o=!0,i=0;i<r.length;i++)(!1&c||f>=c)&&Object.keys(t.O).every((function(e){return t.O[e](r[i])}))?r.splice(i--,1):(o=!1,c<f&&(f=c));if(o){e.splice(d--,1);var u=a();void 0!==u&&(n=u)}}return n}c=c||0;for(var d=e.length;d>0&&e[d-1][2]>c;d--)e[d]=e[d-1];e[d]=[r,a,c]}}(),function(){t.n=function(e){var n=e&&e.__esModule?function(){return e["default"]}:function(){return e};return t.d(n,{a:n}),n}}(),function(){t.d=function(e,n){for(var r in n)t.o(n,r)&&!t.o(e,r)&&Object.defineProperty(e,r,{enumerable:!0,get:n[r]})}}(),function(){t.f={},t.e=function(e){return Promise.all(Object.keys(t.f).reduce((function(n,r){return t.f[r](e,n),n}),[]))}}(),function(){t.u=function(e){return"static/js/"+e+"."+{1:"6a417ce9",246:"b754739b",432:"27a21753",451:"4a8ddad1",537:"fb9f1945",593:"66b65ca6",601:"e050c821",647:"033b1925",735:"3d21e5bf",1120:"bfd86517",1199:"747283b2",1317:"a78735e8",1318:"2cf536c3",1422:"c8bcbef4",1580:"d712c667",1612:"e36bd2b4",1714:"121adbca",1843:"6cd8d959",2049:"127a72b0",2074:"c3412624",2148:"648cd53e",2418:"c5737857",2492:"3f0b644a",2553:"481df222",2681:"31bd5f1c",2712:"faf3cfac",2731:"52b9d947",2791:"afc53ac4",2805:"05ee69f9",2993:"85bfa6ce",3122:"c45534e8",3533:"070a9982",3594:"ef810a05",3727:"fadcf73d",3807:"fd82582d",3849:"4a08097d",4243:"971f5391",4339:"fc030729",4358:"f872be5a",4513:"3783076b",4582:"008257e9",4618:"1ea39669",4692:"937136a9",4740:"9a627e3e",4831:"f3dd3078",4915:"af922599",4961:"c6c8e1f9",5004:"72377f58",5052:"0f2e7447",5173:"3ad65d99",5269:"49d3c3c9",5596:"2a128b43",5621:"c00bb9bc",5675:"e2fff0ce",6029:"09a135bf",6282:"c27c8d34",6294:"8223fe4c",6385:"5c3c8df7",6474:"7a9609fa",6510:"1bf21e3a",6587:"a8432cff",6649:"64a53cf9",6652:"782efbb5",6674:"3fdf120c",6786:"fa8e5aae",6831:"baec45e5",6858:"494e403e",7113:"d1eef85f",7140:"81c97a24",7273:"1b64e494",7305:"6faf22a0",7454:"2ceb0887",7584:"53a8f351",7666:"3cff89bb",7703:"a8440c44",7756:"7dec5ec8",8081:"791fc531",8151:"52166f2f",8192:"2bec55a2",8510:"f1726ae7",8769:"6817c162",8815:"5f30b747",8857:"aa2f7abe",8910:"5ba2aea9",9115:"0776dc95",9386:"1d4d5b96",9541:"178b92aa",9596:"a82c2686",9600:"241769cf",9761:"b4f72f31",9783:"e4e6d1b2",9825:"a9a5da15",9834:"82051984"}[e]+".js"}}(),function(){t.miniCssF=function(e){return"static/css/"+e+"."+{451:"80417875",593:"3b793b73",601:"7d624bf9",647:"44e9c45b",735:"af8b687e",1120:"555bb2bf",1199:"046d17a2",1580:"08b6f1a8",1843:"8f02ef47",2049:"1e2b21b0",2681:"31ec14f2",2712:"d57106f4",2731:"43092fc2",2791:"6c91c180",3122:"cdc24b00",3594:"c6d752cd",3807:"0669695f",4339:"86207332",4358:"52ac155d",4513:"9e52fff9",4740:"622e4b0d",4831:"1a3a8981",4961:"ef0eb8c7",5052:"90b0bf08",5173:"6c66c384",5596:"c9c311b2",6282:"bc4fa60c",6294:"5d3935e3",6385:"f62382b0",6510:"ca0aa2e9",6652:"919acce1",6786:"39536074",7454:"5da5cafc",7584:"857ab59e",8081:"2a13eaeb",8815:"fc8977a4",8857:"09a8a1ca",9541:"76856402",9596:"3b793b73",9600:"c6cb0782",9834:"35cbd6cb"}[e]+".css"}}(),function(){t.g=function(){if("object"===typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(e){if("object"===typeof window)return window}}()}(),function(){t.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)}}(),function(){var e={},n="ruoyi:";t.l=function(r,a,c,f){if(e[r])e[r].push(a);else{var o,i;if(void 0!==c)for(var u=document.getElementsByTagName("script"),d=0;d<u.length;d++){var b=u[d];if(b.getAttribute("src")==r||b.getAttribute("data-webpack")==n+c){o=b;break}}o||(i=!0,o=document.createElement("script"),o.charset="utf-8",o.timeout=120,t.nc&&o.setAttribute("nonce",t.nc),o.setAttribute("data-webpack",n+c),o.src=r),e[r]=[a];var l=function(n,t){o.onerror=o.onload=null,clearTimeout(s);var a=e[r];if(delete e[r],o.parentNode&&o.parentNode.removeChild(o),a&&a.forEach((function(e){return e(t)})),n)return n(t)},s=setTimeout(l.bind(null,void 0,{type:"timeout",target:o}),12e4);o.onerror=l.bind(null,o.onerror),o.onload=l.bind(null,o.onload),i&&document.head.appendChild(o)}}}(),function(){t.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})}}(),function(){t.nmd=function(e){return e.paths=[],e.children||(e.children=[]),e}}(),function(){t.p="/"}(),function(){if("undefined"!==typeof document){var e=function(e,n,r,a,c){var f=document.createElement("link");f.rel="stylesheet",f.type="text/css",t.nc&&(f.nonce=t.nc);var o=function(t){if(f.onerror=f.onload=null,"load"===t.type)a();else{var r=t&&t.type,o=t&&t.target&&t.target.href||n,i=new Error("Loading CSS chunk "+e+" failed.\n("+r+": "+o+")");i.name="ChunkLoadError",i.code="CSS_CHUNK_LOAD_FAILED",i.type=r,i.request=o,f.parentNode&&f.parentNode.removeChild(f),c(i)}};return f.onerror=f.onload=o,f.href=n,r?r.parentNode.insertBefore(f,r.nextSibling):document.head.appendChild(f),f},n=function(e,n){for(var t=document.getElementsByTagName("link"),r=0;r<t.length;r++){var a=t[r],c=a.getAttribute("data-href")||a.getAttribute("href");if("stylesheet"===a.rel&&(c===e||c===n))return a}var f=document.getElementsByTagName("style");for(r=0;r<f.length;r++){a=f[r],c=a.getAttribute("data-href");if(c===e||c===n)return a}},r=function(r){return new Promise((function(a,c){var f=t.miniCssF(r),o=t.p+f;if(n(f,o))return a();e(r,o,null,a,c)}))},a={9121:0};t.f.miniCss=function(e,n){var t={451:1,593:1,601:1,647:1,735:1,1120:1,1199:1,1580:1,1843:1,2049:1,2681:1,2712:1,2731:1,2791:1,3122:1,3594:1,3807:1,4339:1,4358:1,4513:1,4740:1,4831:1,4961:1,5052:1,5173:1,5596:1,6282:1,6294:1,6385:1,6510:1,6652:1,6786:1,7454:1,7584:1,8081:1,8815:1,8857:1,9541:1,9596:1,9600:1,9834:1};a[e]?n.push(a[e]):0!==a[e]&&t[e]&&n.push(a[e]=r(e).then((function(){a[e]=0}),(function(n){throw delete a[e],n})))}}}(),function(){var e={9121:0};t.f.j=function(n,r){var a=t.o(e,n)?e[n]:void 0;if(0!==a)if(a)r.push(a[2]);else if(/^(2049|9121)$/.test(n))e[n]=0;else{var c=new Promise((function(t,r){a=e[n]=[t,r]}));r.push(a[2]=c);var f=t.p+t.u(n),o=new Error,i=function(r){if(t.o(e,n)&&(a=e[n],0!==a&&(e[n]=void 0),a)){var c=r&&("load"===r.type?"missing":r.type),f=r&&r.target&&r.target.src;o.message="Loading chunk "+n+" failed.\n("+c+": "+f+")",o.name="ChunkLoadError",o.type=c,o.request=f,a[1](o)}};t.l(f,i,"chunk-"+n,n)}},t.O.j=function(n){return 0===e[n]};var n=function(n,r){var a,c,f=r[0],o=r[1],i=r[2],u=0;if(f.some((function(n){return 0!==e[n]}))){for(a in o)t.o(o,a)&&(t.m[a]=o[a]);if(i)var d=i(t)}for(n&&n(r);u<f.length;u++)c=f[u],t.o(e,c)&&e[c]&&e[c][0](),e[c]=0;return t.O(d)},r=self["webpackChunkruoyi"]=self["webpackChunkruoyi"]||[];r.forEach(n.bind(null,0)),r.push=n.bind(null,r.push.bind(r))}()})();</script><script defer="defer" src="/static/js/chunk-elementUI.994b8051.js" type="module"></script><script defer="defer" src="/static/js/chunk-libs.3228d599.js" type="module"></script><script defer="defer" src="/static/js/app.63ea6f4f.js" type="module"></script><link href="/static/css/chunk-libs.edb904be.css" rel="stylesheet"><link href="/static/css/app.f46c5d25.css" rel="stylesheet"><script defer="defer" src="/static/js/runtime-legacy.48b56b41.js" nomodule></script><script defer="defer" src="/static/js/chunk-elementUI-legacy.994b8051.js" nomodule></script><script defer="defer" src="/static/js/chunk-libs-legacy.0cd54295.js" nomodule></script><script defer="defer" src="/static/js/app-legacy.eed6ea9e.js" nomodule></script></head><body><div id="app"><div id="loader-wrapper"><div id="loader"></div><div class="loader-section section-left"></div><div class="loader-section section-right"></div><div class="load_title">正在加载系统资源，请耐心等待</div></div></div></body></html>
