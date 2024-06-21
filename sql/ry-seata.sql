@@ -12,7 +12,9 @@
 
  Date: 05/01/2024 17:34:22
 */
-
+drop database if exists `ry-seata`;
+create database `ry-seata`;
+use `ry-seata`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

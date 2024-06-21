@@ -12,7 +12,9 @@
 
  Date: 05/01/2024 17:33:39
 */
-
+drop database if exists `jxsb-pms-db`;
+create database `jxsb-pms-db`;
+use `jxsb-pms-db`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
