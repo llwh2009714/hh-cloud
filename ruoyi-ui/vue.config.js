@@ -7,7 +7,7 @@ function resolve(dir) {
 
 const CompressionPlugin = require('compression-webpack-plugin')
 
-const name = process.env.VUE_APP_TITLE || '鸿鹄采购管理系统' // 网页标题
+const name = process.env.VUE_APP_TITLE || 'XX采购管理系统' // 网页标题
 
 const port = process.env.port || process.env.npm_config_port || 80 // 端口
 
@@ -25,24 +25,25 @@ module.exports = {
   assetsDir: 'static',
   // 是否开启eslint保存检测，有效值：ture | false | 'error'
   lintOnSave: process.env.NODE_ENV === 'development',
+  // lintOnSave: process.env.NODE_ENV === 'production',
   // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
   productionSourceMap: false,
   // webpack-dev-server 相关配置
   devServer: {
     host: '0.0.0.0',
-    port: port,
+    port: 8080,
     open: true,
     proxy: {
-      // detail: https://cli.vuejs.org/config/#devserver-proxy
-      [process.env.VUE_APP_BASE_API]: {
-        target: `http://localhost:8080`,
+      '/prod-api': {
+        target: 'http://39.107.115.201',
         changeOrigin: true,
         pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
+          '^prod-api': ''
         }
       }
-    }
-    //disableHostCheck: true
+    },
+    historyApiFallback: true,
+    allowedHosts:"all"
   },
   css: {
     loaderOptions: {

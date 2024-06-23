@@ -1,1 +1,0 @@
-"use strict";(self["webpackChunkruoyi"]=self["webpackChunkruoyi"]||[]).push([[6474],{76474:function(r,e,u){u.r(e),u.d(e,{default:function(){return o}});var t,n,a={created(){const{params:r,query:e}=this.$route,{path:u}=r;this.$router.replace({path:"/"+u,query:e})},render:function(r){return r()}},l=a,s=u(81656),c=(0,s.A)(l,t,n,!1,null,null,null),o=c.exports}}]);

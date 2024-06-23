@@ -1,1 +1,0 @@
-"use strict";(self["webpackChunkruoyi"]=self["webpackChunkruoyi"]||[]).push([[9783],{59783:function(s,u,e){e.r(u);const c=e(48202),t=s=>s.keys(),a=/\.\/(.*)\.svg/,k=t(c).map((s=>s.match(a)[1]));u["default"]=k}}]);
