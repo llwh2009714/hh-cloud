@@ -49,7 +49,7 @@ public class BidApplicationsController extends BaseController
     /**
      * 查询抽取申请列表
      */
-    @RequiresPermissions("system:applications:list")
+    //@RequiresPermissions("system:applications:list")
     @GetMapping("/list")
     public TableDataInfo list(BidApplications bidApplications)
     {
@@ -61,7 +61,7 @@ public class BidApplicationsController extends BaseController
     /**
      * 导出抽取申请列表
      */
-    @RequiresPermissions("system:applications:export")
+    //@RequiresPermissions("system:applications:export")
     @Log(title = "抽取申请", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BidApplications bidApplications)
@@ -74,7 +74,7 @@ public class BidApplicationsController extends BaseController
     /**
      * 获取抽取申请详细信息
      */
-    @RequiresPermissions("system:applications:query")
+    //@RequiresPermissions("system:applications:query")
     @GetMapping(value = "/{xid}")
     public AjaxResult getInfo(@PathVariable("xid") Long xid)
     {
@@ -84,7 +84,7 @@ public class BidApplicationsController extends BaseController
     /**
      * 新增抽取申请
      */
-    @RequiresPermissions("system:applications:add")
+    //@RequiresPermissions("system:applications:add")
     @Log(title = "抽取申请", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BidApplications bidApplications)
@@ -99,7 +99,7 @@ public class BidApplicationsController extends BaseController
     /**
      * 修改抽取申请
      */
-    @RequiresPermissions("system:applications:edit")
+    //@RequiresPermissions("system:applications:edit")
     @Log(title = "抽取申请", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BidApplications bidApplications)
@@ -110,7 +110,7 @@ public class BidApplicationsController extends BaseController
     /**
      * 删除抽取申请
      */
-    @RequiresPermissions("system:applications:remove")
+    //@RequiresPermissions("system:applications:remove")
     @Log(title = "抽取申请", businessType = BusinessType.DELETE)
     @DeleteMapping("/{xids}")
     public AjaxResult remove(@PathVariable Long[] xids)

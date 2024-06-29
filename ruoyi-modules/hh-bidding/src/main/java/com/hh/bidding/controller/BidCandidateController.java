@@ -37,7 +37,7 @@ public class BidCandidateController extends BaseController {
     /**
      * 查询中标候选人列表
      */
-    @RequiresPermissions("system:candidate:list")
+    //@RequiresPermissions("system:candidate:list")
     @GetMapping("/list")
     public TableDataInfo list(BidCandidate bidCandidate) {
         startPage();
@@ -48,7 +48,7 @@ public class BidCandidateController extends BaseController {
     /**
      * 导出中标候选人列表
      */
-    @RequiresPermissions("system:candidate:export")
+    //@RequiresPermissions("system:candidate:export")
     @Log(title = "中标候选人", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BidCandidate bidCandidate) {
@@ -60,7 +60,7 @@ public class BidCandidateController extends BaseController {
     /**
      * 获取中标候选人详细信息
      */
-    @RequiresPermissions("system:candidate:query")
+    //@RequiresPermissions("system:candidate:query")
     @GetMapping(value = "/{zid}")
     public AjaxResult getInfo(@PathVariable("zid") Long zid) {
         return success(bidCandidateService.selectBidCandidateByZid(zid));
@@ -69,7 +69,7 @@ public class BidCandidateController extends BaseController {
     /**
      * 新增中标候选人
      */
-    @RequiresPermissions("system:candidate:add")
+    //@RequiresPermissions("system:candidate:add")
     @Log(title = "中标候选人", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BidCandidate bidCandidate) {
@@ -79,7 +79,7 @@ public class BidCandidateController extends BaseController {
     /**
      * 修改中标候选人
      */
-    @RequiresPermissions("system:candidate:edit")
+    //@RequiresPermissions("system:candidate:edit")
     @Log(title = "中标候选人", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BidCandidate bidCandidate) {
@@ -89,7 +89,7 @@ public class BidCandidateController extends BaseController {
     /**
      * 删除中标候选人
      */
-    @RequiresPermissions("system:candidate:remove")
+    //@RequiresPermissions("system:candidate:remove")
     @Log(title = "中标候选人", businessType = BusinessType.DELETE)
     @DeleteMapping("/{zids}")
     public AjaxResult remove(@PathVariable Long[] zids) {

@@ -39,7 +39,7 @@ public class PpmBudgetController extends BaseController {
     /**
      * 查询预算列表
      */
-    @RequiresPermissions("system:budget:list")
+    //@RequiresPermissions("system:budget:list")
     @GetMapping("/list")
     public TableDataInfo list(PpmBudget ppmBudget) {
         startPage();
@@ -50,7 +50,7 @@ public class PpmBudgetController extends BaseController {
     /**
      * 导出预算列表
      */
-    @RequiresPermissions("system:budget:export")
+    //@RequiresPermissions("system:budget:export")
     @Log(title = "预算", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, PpmBudget ppmBudget) {
@@ -62,7 +62,7 @@ public class PpmBudgetController extends BaseController {
     /**
      * 获取预算详细信息
      */
-    @RequiresPermissions("system:budget:query")
+    //@RequiresPermissions("system:budget:query")
     @GetMapping(value = "/{duId}")
     public AjaxResult getInfo(@PathVariable("duId") String duId) {
         return success(ppmBudgetService.selectPpmBudgetByDuId(duId));
@@ -71,7 +71,7 @@ public class PpmBudgetController extends BaseController {
     /**
      * 新增预算
      */
-    @RequiresPermissions("system:budget:add")
+    //@RequiresPermissions("system:budget:add")
     @Log(title = "预算", businessType = BusinessType.INSERT)
     @PostMapping
     @Transactional
@@ -88,7 +88,7 @@ public class PpmBudgetController extends BaseController {
     /**
      * 修改预算
      */
-    @RequiresPermissions("system:budget:edit")
+    //@RequiresPermissions("system:budget:edit")
     @Log(title = "预算", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody PpmBudget ppmBudget) {
@@ -98,14 +98,14 @@ public class PpmBudgetController extends BaseController {
     /**
      * 删除预算
      */
-    @RequiresPermissions("system:budget:remove")
+    //@RequiresPermissions("system:budget:remove")
     @Log(title = "预算", businessType = BusinessType.DELETE)
     @DeleteMapping("/{duIds}")
     public AjaxResult remove(@PathVariable String[] duIds) {
         return toAjax(ppmBudgetService.deletePpmBudgetByDuIds(duIds));
     }
 
-    @RequiresPermissions("system:budget:query")
+    //@RequiresPermissions("system:budget:query")
     @PostMapping("/BudgetBy")
     public AjaxResult selectPpmBudgetByAid(String aid) {
         return AjaxResult.success(ppmBudgetService.selectPpmBudgetByAid(aid));

@@ -41,7 +41,7 @@ public class BidDocumentsController extends BaseController
     /**
      * 查询招标文件列表
      */
-    @RequiresPermissions("system:documents:list")
+    //@RequiresPermissions("system:documents:list")
     @GetMapping("/list")
     public TableDataInfo list(BidDocuments bidDocuments)
     {
@@ -60,7 +60,7 @@ public class BidDocumentsController extends BaseController
     /**
      * 导出招标文件列表
      */
-    @RequiresPermissions("system:documents:export")
+    //@RequiresPermissions("system:documents:export")
     @Log(title = "招标文件", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BidDocuments bidDocuments)
@@ -73,7 +73,7 @@ public class BidDocumentsController extends BaseController
     /**
      * 获取招标文件详细信息
      */
-    @RequiresPermissions("system:documents:query")
+    //@RequiresPermissions("system:documents:query")
     @GetMapping(value = "/{wid}")
     public AjaxResult getInfo(@PathVariable("wid") Long wid)
     {
@@ -83,7 +83,7 @@ public class BidDocumentsController extends BaseController
     /**
      * 新增招标文件
      */
-    @RequiresPermissions("system:documents:add")
+    //@RequiresPermissions("system:documents:add")
     @Log(title = "招标文件", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BidDocuments bidDocuments)
@@ -94,7 +94,7 @@ public class BidDocumentsController extends BaseController
     /**
      * 修改招标文件
      */
-    @RequiresPermissions("system:documents:edit")
+    //@RequiresPermissions("system:documents:edit")
     @Log(title = "招标文件", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BidDocuments bidDocuments)
@@ -105,7 +105,7 @@ public class BidDocumentsController extends BaseController
     /**
      * 删除招标文件
      */
-    @RequiresPermissions("system:documents:remove")
+    //@RequiresPermissions("system:documents:remove")
     @Log(title = "招标文件", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{wids}")
     public AjaxResult remove(@PathVariable Long[] wids)

@@ -60,7 +60,7 @@ public class PpmProcurementPlanController extends BaseController {
     /**
      * 查询采购计划列表
      */
-    @RequiresPermissions("system:plan:list")
+    //@RequiresPermissions("system:plan:list")
     @GetMapping("/list")
     public TableDataInfo list(PpmProcurementPlan ppmProcurementPlan) {
         startPage();
@@ -71,7 +71,7 @@ public class PpmProcurementPlanController extends BaseController {
     /**
      * 导出采购计划列表
      */
-    @RequiresPermissions("system:plan:export")
+    //@RequiresPermissions("system:plan:export")
     @Log(title = "采购计划", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, PpmProcurementPlan ppmProcurementPlan) {
@@ -83,7 +83,7 @@ public class PpmProcurementPlanController extends BaseController {
     /**
      * 获取采购计划详细信息
      */
-    @RequiresPermissions("system:plan:query")
+    //@RequiresPermissions("system:plan:query")
     @GetMapping(value = "/{aid}")
     public AjaxResult getInfo(@PathVariable("aid") Integer aid) {
         return success(ppmProcurementPlanService.selectPpmProcurementPlanByAid(aid));
@@ -92,7 +92,7 @@ public class PpmProcurementPlanController extends BaseController {
     /**
      * 新增采购计划
      */
-    @RequiresPermissions("system:plan:add")
+    //@RequiresPermissions("system:plan:add")
     @Log(title = "采购计划", businessType = BusinessType.INSERT)
     @Transactional
     @PostMapping
@@ -113,7 +113,7 @@ public class PpmProcurementPlanController extends BaseController {
     /**
      * 修改采购计划
      */
-//    @RequiresPermissions("system:plan:edit")
+//    //@RequiresPermissions("system:plan:edit")
     @Log(title = "采购计划", businessType = BusinessType.UPDATE)
     @PutMapping
     @Transactional
@@ -149,7 +149,7 @@ public class PpmProcurementPlanController extends BaseController {
     /**
      * 删除采购计划
      */
-    @RequiresPermissions("system:plan:remove")
+    //@RequiresPermissions("system:plan:remove")
     @Log(title = "采购计划", businessType = BusinessType.DELETE)
     @Transactional
     @DeleteMapping("/{aids}")
@@ -159,13 +159,13 @@ public class PpmProcurementPlanController extends BaseController {
         return toAjax(ppmProcurementPlanService.deletePpmProcurementPlanByAids(aids));
     }
 
-    @RequiresPermissions("system:attachments:list")
+    //@RequiresPermissions("system:attachments:list")
     @GetMapping("/many")
     public AjaxResult selectProcurementPlanByIdForThreeTables(Integer aid) {
         return success(ppmProcurementPlanService.selectProcurementPlanByIdForThreeTables(aid));
     }
 
-    @RequiresPermissions("system:plan:query")
+    //@RequiresPermissions("system:plan:query")
     @GetMapping("/generatePlanID")
     public String generatePlanID() {
         ComCodeRules rules = comCodeRulesService.selectComCodeRulesByTargetForm(CodeRuleUtil.PROCUREMENTNAME);
@@ -175,7 +175,7 @@ public class PpmProcurementPlanController extends BaseController {
         return result.getCode();
     }
 
-    @RequiresPermissions("system:plan:edit")
+    //@RequiresPermissions("system:plan:edit")
     @PostMapping("/otherInformation")
     @Transactional
     public AjaxResult ModifyPlanAndOtherInformation(@RequestBody PpmProcurementPlan ppmProcurementPlan) {
@@ -249,7 +249,7 @@ public class PpmProcurementPlanController extends BaseController {
         return getDataTable(ppmProcurementPlanService.FindProcurementPlanBy(ppmProcurementPlan));
     }
 
-    @RequiresPermissions("system:plan:list")
+//    //@RequiresPermissions("system:plan:list")
     @GetMapping("/PpmProcurementPlanAndComPubAttament")
     public TableDataInfo selectePpmProcurementPlanAndComPubAttamentByAid( PpmProcurementPlan ppmProcurementPlan) {
         System.out.println("执行了PpmProcurementPlanAndComPubAttament：" + ppmProcurementPlan);

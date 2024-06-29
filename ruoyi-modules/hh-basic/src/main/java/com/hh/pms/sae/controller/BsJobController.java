@@ -47,7 +47,7 @@ public class BsJobController extends BaseController {
     /**
      * 导出职称列表
      */
-    @RequiresPermissions("system:job:export")
+    //@RequiresPermissions("system:job:export")
     @Log(title = "职称", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsJob bsJob) {
@@ -59,7 +59,7 @@ public class BsJobController extends BaseController {
     /**
      * 获取职称详细信息
      */
-    @RequiresPermissions("system:job:query")
+    //@RequiresPermissions("system:job:query")
     @GetMapping(value = "/{mid}")
     public AjaxResult getInfo(@PathVariable("mid") Long mid) {
         return success(bsJobService.selectBsJobByMid(mid));
@@ -68,7 +68,7 @@ public class BsJobController extends BaseController {
     /**
      * 新增职称
      */
-    @RequiresPermissions("system:job:add")
+    //@RequiresPermissions("system:job:add")
     @Log(title = "职称", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BsJob bsJob) {
@@ -78,7 +78,7 @@ public class BsJobController extends BaseController {
     /**
      * 修改职称
      */
-    @RequiresPermissions("system:job:edit")
+    //@RequiresPermissions("system:job:edit")
     @Log(title = "职称", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BsJob bsJob) {
@@ -88,7 +88,7 @@ public class BsJobController extends BaseController {
     /**
      * 删除职称
      */
-    @RequiresPermissions("system:job:remove")
+    //@RequiresPermissions("system:job:remove")
     @Log(title = "职称", businessType = BusinessType.DELETE)
     @DeleteMapping("/{mids}")
     public AjaxResult remove(@PathVariable Long[] mids) {

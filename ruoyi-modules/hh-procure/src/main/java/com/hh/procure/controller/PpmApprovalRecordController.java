@@ -30,7 +30,7 @@ public class PpmApprovalRecordController extends BaseController {
     /**
      * 查询审批记录列表
      */
-    @RequiresPermissions("system:record:list")
+    //@RequiresPermissions("system:record:list")
     @GetMapping("/list")
     public TableDataInfo list(PpmApprovalRecord ppmApprovalRecord) {
         System.out.println("ppmApprovalRecord:" + ppmApprovalRecord);
@@ -42,7 +42,7 @@ public class PpmApprovalRecordController extends BaseController {
     /**
      * 导出审批记录列表
      */
-    @RequiresPermissions("system:record:export")
+    //@RequiresPermissions("system:record:export")
     @Log(title = "审批记录", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, PpmApprovalRecord ppmApprovalRecord) {
@@ -54,7 +54,7 @@ public class PpmApprovalRecordController extends BaseController {
     /**
      * 获取审批记录详细信息
      */
-    @RequiresPermissions("system:record:query")
+    //@RequiresPermissions("system:record:query")
     @GetMapping(value = "/{rid}")
     public AjaxResult getInfo(@PathVariable("rid") Integer rid) {
         return success(ppmApprovalRecordService.selectPpmApprovalRecordByRid(rid));
@@ -63,7 +63,7 @@ public class PpmApprovalRecordController extends BaseController {
     /**
      * 新增审批记录
      */
-    @RequiresPermissions("system:record:add")
+    //@RequiresPermissions("system:record:add")
     @Log(title = "审批记录", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody PpmApprovalRecord ppmApprovalRecord) {
@@ -73,7 +73,7 @@ public class PpmApprovalRecordController extends BaseController {
     /**
      * 修改审批记录
      */
-    @RequiresPermissions("system:record:edit")
+    //@RequiresPermissions("system:record:edit")
     @Log(title = "审批记录", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody PpmApprovalRecord ppmApprovalRecord) {
@@ -83,7 +83,7 @@ public class PpmApprovalRecordController extends BaseController {
     /**
      * 删除审批记录
      */
-    @RequiresPermissions("system:record:remove")
+    //@RequiresPermissions("system:record:remove")
     @Log(title = "审批记录", businessType = BusinessType.DELETE)
     @DeleteMapping("/{rids}")
     public AjaxResult remove(@PathVariable Integer[] rids) {

@@ -47,7 +47,7 @@ public class BsOperatorController extends BaseController {
     /**
      * 导出业务经办人信息列表
      */
-    @RequiresPermissions("system:operator:export")
+    //@RequiresPermissions("system:operator:export")
     @Log(title = "业务经办人信息", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsOperator bsOperator) {

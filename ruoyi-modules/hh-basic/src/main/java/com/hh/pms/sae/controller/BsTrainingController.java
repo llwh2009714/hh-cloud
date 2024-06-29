@@ -47,7 +47,7 @@ public class BsTrainingController extends BaseController {
     /**
      * 导出培训列表
      */
-    @RequiresPermissions("system:training:export")
+    //@RequiresPermissions("system:training:export")
     @Log(title = "培训", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsTraining bsTraining) {
@@ -59,7 +59,7 @@ public class BsTrainingController extends BaseController {
     /**
      * 获取培训详细信息
      */
-    @RequiresPermissions("system:training:query")
+    //@RequiresPermissions("system:training:query")
     @GetMapping(value = "/{lid}")
     public AjaxResult getInfo(@PathVariable("lid") Long lid) {
         return success(bsTrainingService.selectBsTrainingByLid(lid));
@@ -68,7 +68,7 @@ public class BsTrainingController extends BaseController {
     /**
      * 新增培训
      */
-    @RequiresPermissions("system:training:add")
+    //@RequiresPermissions("system:training:add")
     @Log(title = "培训", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BsTraining bsTraining) {
@@ -78,7 +78,7 @@ public class BsTrainingController extends BaseController {
     /**
      * 修改培训
      */
-    @RequiresPermissions("system:training:edit")
+    //@RequiresPermissions("system:training:edit")
     @Log(title = "培训", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BsTraining bsTraining) {
@@ -88,7 +88,7 @@ public class BsTrainingController extends BaseController {
     /**
      * 删除培训
      */
-    @RequiresPermissions("system:training:remove")
+    //@RequiresPermissions("system:training:remove")
     @Log(title = "培训", businessType = BusinessType.DELETE)
     @DeleteMapping("/{lids}")
     public AjaxResult remove(@PathVariable Long[] lids) {

@@ -47,7 +47,7 @@ public class BsPersonnelController extends BaseController {
     /**
      * 导出核心技术人员列表
      */
-    @RequiresPermissions("system:personnel:export")
+    //@RequiresPermissions("system:personnel:export")
     @Log(title = "核心技术人员", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsPersonnel bsPersonnel) {

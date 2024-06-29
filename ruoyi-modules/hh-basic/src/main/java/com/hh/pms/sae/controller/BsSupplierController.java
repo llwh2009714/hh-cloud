@@ -135,7 +135,7 @@ public class BsSupplierController extends BaseController {
     /**
      * 查询合格供应商列表
      */
-    @RequiresPermissions("system:supplier:list")
+    //@RequiresPermissions("system:supplier:list")
     @GetMapping("/list")
     public TableDataInfo list(BsSupplier bsSupplier) {
         startPage();
@@ -146,7 +146,7 @@ public class BsSupplierController extends BaseController {
     /**
      * 查询不合格供应商列表
      */
-    @RequiresPermissions("system:supplier:list")
+    //@RequiresPermissions("system:supplier:list")
     @GetMapping("/noSupplierList")
     public TableDataInfo noSupplierList(BsSupplier bsSupplier) {
         startPage();
@@ -157,7 +157,7 @@ public class BsSupplierController extends BaseController {
     /**
      * 查询供应商不良记录列表
      */
-    @RequiresPermissions("system:supplier:list")
+    //@RequiresPermissions("system:supplier:list")
     @GetMapping("/supplierBadList")
     public TableDataInfo supplierBadList(BsSupplier bsSupplier) {
         startPage();
@@ -168,7 +168,7 @@ public class BsSupplierController extends BaseController {
     /**
      * 导出供应商列表
      */
-    @RequiresPermissions("system:supplier:export")
+    //@RequiresPermissions("system:supplier:export")
     @Log(title = "供应商", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsSupplier bsSupplier) {
@@ -268,7 +268,7 @@ public class BsSupplierController extends BaseController {
     /**
      * 修改供应商
      */
-//    @RequiresPermissions("system:supplier:edit")
+//    //@RequiresPermissions("system:supplier:edit")
     @Log(title = "供应商", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BsSupplier bsSupplier) {
@@ -287,7 +287,7 @@ public class BsSupplierController extends BaseController {
     /**
      * 查询非招标项目
      */
-//    @RequiresPermissions("system:supplier:list")
+//    //@RequiresPermissions("system:supplier:list")
     @GetMapping("/noBidList")
     public TableDataInfo noBidList(NobidNonPro nobidNonPro) {
         startPage();

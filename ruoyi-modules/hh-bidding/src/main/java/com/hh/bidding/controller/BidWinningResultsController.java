@@ -37,7 +37,7 @@ public class BidWinningResultsController extends BaseController
     /**
      * 查询中标结果公示列表
      */
-//    @RequiresPermissions("system:results:list")
+//    //@RequiresPermissions("system:results:list")
     @GetMapping("/list")
     public TableDataInfo list( BidWinningResults bidWinningResults)
     {
@@ -49,7 +49,7 @@ public class BidWinningResultsController extends BaseController
     /**
      * 导出中标结果公示列表
      */
-    @RequiresPermissions("system:results:export")
+    //@RequiresPermissions("system:results:export")
     @Log(title = "中标结果公示", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BidWinningResults bidWinningResults)
@@ -62,7 +62,7 @@ public class BidWinningResultsController extends BaseController
     /**
      * 获取中标结果公示详细信息
      */
-    @RequiresPermissions("system:results:query")
+    //@RequiresPermissions("system:results:query")
     @GetMapping(value = "/{gsId}")
     public AjaxResult getInfo(@PathVariable("gsId") Long gsId)
     {
@@ -72,7 +72,7 @@ public class BidWinningResultsController extends BaseController
     /**
      * 新增中标结果公示
      */
-    @RequiresPermissions("system:results:add")
+    //@RequiresPermissions("system:results:add")
     @Log(title = "中标结果公示", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BidWinningResults bidWinningResults)
@@ -83,7 +83,7 @@ public class BidWinningResultsController extends BaseController
     /**
      * 修改中标结果公示
      */
-    @RequiresPermissions("system:results:edit")
+    //@RequiresPermissions("system:results:edit")
     @Log(title = "中标结果公示", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BidWinningResults bidWinningResults)
@@ -94,7 +94,7 @@ public class BidWinningResultsController extends BaseController
     /**
      * 删除中标结果公示
      */
-    @RequiresPermissions("system:results:remove")
+    //@RequiresPermissions("system:results:remove")
     @Log(title = "中标结果公示", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{gsIds}")
     public AjaxResult remove(@PathVariable Long[] gsIds)

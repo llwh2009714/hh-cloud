@@ -37,7 +37,7 @@ public class BidTenderController extends BaseController {
     /**
      * 查询招标项目列表
      */
-//    @RequiresPermissions("system:tender:list")
+//    //@RequiresPermissions("system:tender:list")
     @GetMapping("/list")
     public TableDataInfo list(BidTender bidTender) {
         startPage();
@@ -48,7 +48,7 @@ public class BidTenderController extends BaseController {
     /**
      * 导出招标项目列表
      */
-    @RequiresPermissions("system:tender:export")
+    //@RequiresPermissions("system:tender:export")
     @Log(title = "招标项目", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BidTender bidTender) {
@@ -60,7 +60,7 @@ public class BidTenderController extends BaseController {
     /**
      * 获取招标项目详细信息
      */
-    @RequiresPermissions("system:tender:query")
+    //@RequiresPermissions("system:tender:query")
     @GetMapping(value = "/{sid}")
     public AjaxResult getInfo(@PathVariable("sid") Long sid) {
         return success(bidTenderService.selectBidTenderBySid(sid));
@@ -69,7 +69,7 @@ public class BidTenderController extends BaseController {
     /**
      * 新增招标项目
      */
-//    @RequiresPermissions("system:tender:add")
+//    //@RequiresPermissions("system:tender:add")
     @Log(title = "招标项目", businessType = BusinessType.INSERT)
     @PostMapping("addTender")
     public AjaxResult add(@RequestBody BidTender bidTender) {
@@ -79,7 +79,7 @@ public class BidTenderController extends BaseController {
     /**
      * 修改招标项目
      */
-//    @RequiresPermissions("system:tender:edit")
+//    //@RequiresPermissions("system:tender:edit")
     @Log(title = "招标项目", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BidTender bidTender) {
@@ -89,7 +89,7 @@ public class BidTenderController extends BaseController {
     /**
      * 删除招标项目
      */
-    @RequiresPermissions("system:tender:remove")
+    //@RequiresPermissions("system:tender:remove")
     @Log(title = "招标项目", businessType = BusinessType.DELETE)
     @DeleteMapping("/{sids}")
     public AjaxResult remove(@PathVariable Long[] sids) {

@@ -30,7 +30,7 @@ public class PpmDeviceController extends BaseController {
     /**
      * 查询设备信息列表
      */
-    @RequiresPermissions("system:device:list")
+    //@RequiresPermissions("system:device:list")
     @GetMapping("/list")
     public TableDataInfo list(PpmDevice ppmDevice) {
         startPage();
@@ -41,7 +41,7 @@ public class PpmDeviceController extends BaseController {
     /**
      * 导出设备信息列表
      */
-    @RequiresPermissions("system:device:export")
+    //@RequiresPermissions("system:device:export")
     @Log(title = "设备信息", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, PpmDevice ppmDevice) {
@@ -53,7 +53,7 @@ public class PpmDeviceController extends BaseController {
     /**
      * 获取设备信息详细信息
      */
-    @RequiresPermissions("system:device:query")
+    //@RequiresPermissions("system:device:query")
     @GetMapping(value = "/{tid}")
     public AjaxResult getInfo(@PathVariable("tid") String tid) {
         return success(ppmDeviceService.selectPpmDeviceByTid(tid));
@@ -62,7 +62,7 @@ public class PpmDeviceController extends BaseController {
     /**
      * 新增设备信息
      */
-    @RequiresPermissions("system:device:add")
+    //@RequiresPermissions("system:device:add")
     @Log(title = "设备信息", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody PpmDevice ppmDevice) {
@@ -72,7 +72,7 @@ public class PpmDeviceController extends BaseController {
     /**
      * 修改设备信息
      */
-    @RequiresPermissions("system:device:edit")
+    //@RequiresPermissions("system:device:edit")
     @Log(title = "设备信息", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody PpmDevice ppmDevice) {
@@ -82,7 +82,7 @@ public class PpmDeviceController extends BaseController {
     /**
      * 删除设备信息
      */
-    @RequiresPermissions("system:device:remove")
+    //@RequiresPermissions("system:device:remove")
     @Log(title = "设备信息", businessType = BusinessType.DELETE)
     @DeleteMapping("/{tids}")
     public AjaxResult remove(@PathVariable String[] tids) {

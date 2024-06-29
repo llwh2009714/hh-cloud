@@ -47,7 +47,7 @@ public class BsAccessoriesController extends BaseController {
     /**
      * 导出相关附件列表
      */
-    @RequiresPermissions("system:accessories:export")
+    //@RequiresPermissions("system:accessories:export")
     @Log(title = "相关附件", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsAccessories bsAccessories) {
@@ -59,7 +59,7 @@ public class BsAccessoriesController extends BaseController {
     /**
      * 获取相关附件详细信息
      */
-    @RequiresPermissions("system:accessories:query")
+    //@RequiresPermissions("system:accessories:query")
     @GetMapping(value = "/{fjId}")
     public AjaxResult getInfo(@PathVariable("fjId") Long fjId) {
         return success(bsAccessoriesService.selectBsAccessoriesByFjId(fjId));
@@ -68,7 +68,7 @@ public class BsAccessoriesController extends BaseController {
     /**
      * 新增相关附件
      */
-    @RequiresPermissions("system:accessories:add")
+    //@RequiresPermissions("system:accessories:add")
     @Log(title = "相关附件", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BsAccessories bsAccessories) {
@@ -78,7 +78,7 @@ public class BsAccessoriesController extends BaseController {
     /**
      * 修改相关附件
      */
-    @RequiresPermissions("system:accessories:edit")
+    //@RequiresPermissions("system:accessories:edit")
     @Log(title = "相关附件", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BsAccessories bsAccessories) {
@@ -88,7 +88,7 @@ public class BsAccessoriesController extends BaseController {
     /**
      * 删除相关附件
      */
-    @RequiresPermissions("system:accessories:remove")
+    //@RequiresPermissions("system:accessories:remove")
     @Log(title = "相关附件", businessType = BusinessType.DELETE)
     @DeleteMapping("/{fjIds}")
     public AjaxResult remove(@PathVariable Long[] fjIds) {

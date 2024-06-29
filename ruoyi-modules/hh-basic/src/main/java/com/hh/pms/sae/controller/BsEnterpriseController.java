@@ -47,7 +47,7 @@ public class BsEnterpriseController extends BaseController {
     /**
      * 导出企业资质列表
      */
-    @RequiresPermissions("system:enterprise:export")
+    //@RequiresPermissions("system:enterprise:export")
     @Log(title = "企业资质", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsEnterprise bsEnterprise) {
@@ -59,7 +59,7 @@ public class BsEnterpriseController extends BaseController {
     /**
      * 获取企业资质详细信息
      */
-    @RequiresPermissions("system:enterprise:query")
+    //@RequiresPermissions("system:enterprise:query")
     @GetMapping(value = "/{zzId}")
     public AjaxResult getInfo(@PathVariable("zzId") Long zzId) {
         return success(bsEnterpriseService.selectBsEnterpriseByZzId(zzId));
@@ -68,7 +68,7 @@ public class BsEnterpriseController extends BaseController {
     /**
      * 新增企业资质
      */
-    @RequiresPermissions("system:enterprise:add")
+    //@RequiresPermissions("system:enterprise:add")
     @Log(title = "企业资质", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BsEnterprise bsEnterprise) {
@@ -78,7 +78,7 @@ public class BsEnterpriseController extends BaseController {
     /**
      * 修改企业资质
      */
-    @RequiresPermissions("system:enterprise:edit")
+    //@RequiresPermissions("system:enterprise:edit")
     @Log(title = "企业资质", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BsEnterprise bsEnterprise) {
@@ -88,7 +88,7 @@ public class BsEnterpriseController extends BaseController {
     /**
      * 删除企业资质
      */
-    @RequiresPermissions("system:enterprise:remove")
+    //@RequiresPermissions("system:enterprise:remove")
     @Log(title = "企业资质", businessType = BusinessType.DELETE)
     @DeleteMapping("/{zzIds}")
     public AjaxResult remove(@PathVariable Long[] zzIds) {

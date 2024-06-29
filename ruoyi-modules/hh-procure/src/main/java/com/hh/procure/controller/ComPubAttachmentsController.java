@@ -35,7 +35,7 @@ public class ComPubAttachmentsController extends BaseController {
     /**
      * 查询公共附件列表
      */
-    @RequiresPermissions("system:attachments:list")
+    //@RequiresPermissions("system:attachments:list")
     @GetMapping("/list")
     public TableDataInfo list(ComPubAttachments comPubAttachments) {
         startPage();
@@ -46,7 +46,7 @@ public class ComPubAttachmentsController extends BaseController {
     /**
      * 导出公共附件列表
      */
-    @RequiresPermissions("system:attachments:export")
+    //@RequiresPermissions("system:attachments:export")
     @Log(title = "公共附件", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, ComPubAttachments comPubAttachments) {
@@ -58,7 +58,7 @@ public class ComPubAttachmentsController extends BaseController {
     /**
      * 获取公共附件详细信息
      */
-    @RequiresPermissions("system:attachments:query")
+    //@RequiresPermissions("system:attachments:query")
     @GetMapping(value = "/{anId}")
     public AjaxResult getInfo(@PathVariable("anId") Integer anId) {
         return success(comPubAttachmentsService.selectComPubAttachmentsByAnId(anId));
@@ -67,7 +67,7 @@ public class ComPubAttachmentsController extends BaseController {
     /**
      * 新增公共附件
      */
-    @RequiresPermissions("system:attachments:add")
+    //@RequiresPermissions("system:attachments:add")
     @Log(title = "公共附件", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody ComPubAttachments comPubAttachments) {
@@ -77,7 +77,7 @@ public class ComPubAttachmentsController extends BaseController {
     /**
      * 修改公共附件
      */
-    @RequiresPermissions("system:attachments:edit")
+    //@RequiresPermissions("system:attachments:edit")
     @Log(title = "公共附件", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody ComPubAttachments comPubAttachments) {
@@ -87,14 +87,14 @@ public class ComPubAttachmentsController extends BaseController {
     /**
      * 删除公共附件
      */
-    @RequiresPermissions("system:attachments:remove")
+    //@RequiresPermissions("system:attachments:remove")
     @Log(title = "公共附件", businessType = BusinessType.DELETE)
     @DeleteMapping("/{anIds}")
     public AjaxResult remove(@PathVariable Integer[] anIds) {
         return toAjax(comPubAttachmentsService.deleteComPubAttachmentsByAnIds(anIds));
     }
 
-    @RequiresPermissions("system:attachments:list")
+    //@RequiresPermissions("system:attachments:list")
     @PostMapping("/selectedComPubAttamentsByAid")
     public AjaxResult selectedComPubAttamentsByAid(@RequestBody ComPubAttachments comPubAttachments) {
         return success(comPubAttachmentsService.selectedComPubAttamentsByAid(comPubAttachments));

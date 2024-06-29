@@ -47,7 +47,7 @@ public class BidNoticeController extends BaseController {
     /**
      * 导出招标公告列表
      */
-    @RequiresPermissions("system:notice:export")
+    //@RequiresPermissions("system:notice:export")
     @Log(title = "招标公告", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BidNotice bidNotice) {
@@ -59,7 +59,7 @@ public class BidNoticeController extends BaseController {
     /**
      * 获取招标公告详细信息
      */
-    @RequiresPermissions("system:notice:query")
+    //@RequiresPermissions("system:notice:query")
     @GetMapping(value = "/{uid}")
     public AjaxResult getInfo(@PathVariable("uid") Long uid) {
         return success(bidNoticeService.selectBidNoticeByUid(uid));
@@ -68,7 +68,7 @@ public class BidNoticeController extends BaseController {
     /**
      * 新增招标公告
      */
-    @RequiresPermissions("system:notice:add")
+    //@RequiresPermissions("system:notice:add")
     @Log(title = "招标公告", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@Validated @RequestBody BidNotice bidNotice) {
@@ -78,7 +78,7 @@ public class BidNoticeController extends BaseController {
     /**
      * 修改招标公告
      */
-    @RequiresPermissions("system:notice:edit")
+    //@RequiresPermissions("system:notice:edit")
     @Log(title = "招标公告", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@Validated @RequestBody BidNotice bidNotice) {
@@ -88,7 +88,7 @@ public class BidNoticeController extends BaseController {
     /**
      * 删除招标公告
      */
-    @RequiresPermissions("system:notice:remove")
+    //@RequiresPermissions("system:notice:remove")
     @Log(title = "招标公告", businessType = BusinessType.DELETE)
     @DeleteMapping("/{uids}")
     public AjaxResult remove(@PathVariable Long[] uids) {

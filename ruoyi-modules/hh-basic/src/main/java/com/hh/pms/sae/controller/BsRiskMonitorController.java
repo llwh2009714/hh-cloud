@@ -37,7 +37,7 @@ public class BsRiskMonitorController extends BaseController {
     /**
      * 查询供应商风险监控列表
      */
-    @RequiresPermissions("system:monitor:riskMonitor")
+    //@RequiresPermissions("system:monitor:riskMonitor")
     @GetMapping("/list")
     public TableDataInfo list(BsRiskMonitor bsRiskMonitor) {
         startPage();

@@ -37,7 +37,7 @@ public class BidGetTenderController extends BaseController {
     /**
      * 查询获取标书列表
      */
-//    @RequiresPermissions("system:tender:list")
+//    //@RequiresPermissions("system:tender:list")
     @GetMapping("/list")
     public TableDataInfo list(BidGetTender bidGetTender) {
         startPage();
@@ -48,7 +48,7 @@ public class BidGetTenderController extends BaseController {
     /**
      * 导出获取标书列表
      */
-    @RequiresPermissions("system:tender:export")
+    //@RequiresPermissions("system:tender:export")
     @Log(title = "获取标书", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BidGetTender bidGetTender) {
@@ -60,7 +60,7 @@ public class BidGetTenderController extends BaseController {
     /**
      * 获取获取标书详细信息
      */
-    @RequiresPermissions("system:tender:query")
+    //@RequiresPermissions("system:tender:query")
     @GetMapping(value = "/{yid}")
     public AjaxResult getInfo(@PathVariable("yid") Long yid) {
         return success(bidGetTenderService.selectBidGetTenderByYid(yid));
@@ -69,7 +69,7 @@ public class BidGetTenderController extends BaseController {
     /**
      * 新增获取标书
      */
-    @RequiresPermissions("system:tender:add")
+    //@RequiresPermissions("system:tender:add")
     @Log(title = "获取标书", businessType = BusinessType.INSERT)
     @PostMapping("/addBs")
     public AjaxResult add(@RequestBody BidGetTender bidGetTender) {
@@ -79,7 +79,7 @@ public class BidGetTenderController extends BaseController {
     /**
      * 修改获取标书
      */
-    @RequiresPermissions("system:tender:edit")
+    //@RequiresPermissions("system:tender:edit")
     @Log(title = "获取标书", businessType = BusinessType.UPDATE)
     @PutMapping("/putBs")
     public AjaxResult edit(@RequestBody BidGetTender bidGetTender) {
@@ -89,7 +89,7 @@ public class BidGetTenderController extends BaseController {
     /**
      * 删除获取标书
      */
-    @RequiresPermissions("system:tender:remove")
+    //@RequiresPermissions("system:tender:remove")
     @Log(title = "获取标书", businessType = BusinessType.DELETE)
     @DeleteMapping("/{yids}")
     public AjaxResult remove(@PathVariable Long[] yids) {

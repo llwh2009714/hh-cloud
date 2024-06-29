@@ -38,7 +38,7 @@ public class BidCommitteeController extends BaseController
     /**
      * 查询评标委员会列表
      */
-    @RequiresPermissions("system:committee:list")
+    //@RequiresPermissions("system:committee:list")
     @GetMapping("/list")
     public TableDataInfo list(BidCommittee bidCommittee)
     {
@@ -50,7 +50,7 @@ public class BidCommitteeController extends BaseController
     /**
      * 导出评标委员会列表
      */
-    @RequiresPermissions("system:committee:export")
+    //@RequiresPermissions("system:committee:export")
     @Log(title = "评标委员会", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BidCommittee bidCommittee)
@@ -63,7 +63,7 @@ public class BidCommitteeController extends BaseController
     /**
      * 获取评标委员会详细信息
      */
-    @RequiresPermissions("system:committee:query")
+    //@RequiresPermissions("system:committee:query")
     @GetMapping(value = "/{pbId}")
     public AjaxResult getInfo(@PathVariable("pbId") Long pbId)
     {
@@ -73,7 +73,7 @@ public class BidCommitteeController extends BaseController
     /**
      * 新增评标委员会
      */
-    @RequiresPermissions("system:committee:add")
+    //@RequiresPermissions("system:committee:add")
     @Log(title = "评标委员会", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BidCommittee bidCommittee)
@@ -84,7 +84,7 @@ public class BidCommitteeController extends BaseController
     /**
      * 修改评标委员会
      */
-    @RequiresPermissions("system:committee:edit")
+    //@RequiresPermissions("system:committee:edit")
     @Log(title = "评标委员会", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BidCommittee bidCommittee)
@@ -95,7 +95,7 @@ public class BidCommitteeController extends BaseController
     /**
      * 删除评标委员会
      */
-    @RequiresPermissions("system:committee:remove")
+    //@RequiresPermissions("system:committee:remove")
     @Log(title = "评标委员会", businessType = BusinessType.DELETE)
     @DeleteMapping("/{pbIds}")
     public AjaxResult remove(@PathVariable Long[] pbIds)

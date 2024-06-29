@@ -31,7 +31,7 @@ public class PpmLineItemsController extends BaseController
     /**
      * 查询行项目列表
      */
-    @RequiresPermissions("system:items:list")
+    //@RequiresPermissions("system:items:list")
     @GetMapping("/list")
     public TableDataInfo list(PpmLineItems ppmLineItems)
     {
@@ -43,7 +43,7 @@ public class PpmLineItemsController extends BaseController
     /**
      * 导出行项目列表
      */
-    @RequiresPermissions("system:items:export")
+    //@RequiresPermissions("system:items:export")
     @Log(title = "行项目", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, PpmLineItems ppmLineItems)
@@ -56,7 +56,7 @@ public class PpmLineItemsController extends BaseController
     /**
      * 获取行项目详细信息
      */
-    @RequiresPermissions("system:items:query")
+    //@RequiresPermissions("system:items:query")
     @GetMapping(value = "/{vid}")
     public AjaxResult getInfo(@PathVariable("vid") Integer vid)
     {
@@ -66,7 +66,7 @@ public class PpmLineItemsController extends BaseController
     /**
      * 新增行项目
      */
-    @RequiresPermissions("system:items:add")
+    //@RequiresPermissions("system:items:add")
     @Log(title = "行项目", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody PpmLineItems ppmLineItems)
@@ -77,7 +77,7 @@ public class PpmLineItemsController extends BaseController
     /**
      * 修改行项目
      */
-    @RequiresPermissions("system:items:edit")
+    //@RequiresPermissions("system:items:edit")
     @Log(title = "行项目", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody PpmLineItems ppmLineItems)
@@ -88,7 +88,7 @@ public class PpmLineItemsController extends BaseController
     /**
      * 删除行项目
      */
-    @RequiresPermissions("system:items:remove")
+    //@RequiresPermissions("system:items:remove")
     @Log(title = "行项目", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{vids}")
     public AjaxResult remove(@PathVariable Integer[] vids)

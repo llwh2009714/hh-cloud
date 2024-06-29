@@ -47,7 +47,7 @@ public class BsEducateController extends BaseController {
     /**
      * 导出教育列表
      */
-    @RequiresPermissions("system:educate:export")
+    //@RequiresPermissions("system:educate:export")
     @Log(title = "教育", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsEducate bsEducate) {
@@ -59,7 +59,7 @@ public class BsEducateController extends BaseController {
     /**
      * 获取教育详细信息
      */
-    @RequiresPermissions("system:educate:query")
+    //@RequiresPermissions("system:educate:query")
     @GetMapping(value = "/{rid}")
     public AjaxResult getInfo(@PathVariable("rid") Long rid) {
         return success(bsEducateService.selectBsEducateByRid(rid));
@@ -68,7 +68,7 @@ public class BsEducateController extends BaseController {
     /**
      * 新增教育
      */
-    @RequiresPermissions("system:educate:add")
+    //@RequiresPermissions("system:educate:add")
     @Log(title = "教育", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BsEducate bsEducate) {
@@ -78,7 +78,7 @@ public class BsEducateController extends BaseController {
     /**
      * 修改教育
      */
-    @RequiresPermissions("system:educate:edit")
+    //@RequiresPermissions("system:educate:edit")
     @Log(title = "教育", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BsEducate bsEducate) {
@@ -88,7 +88,7 @@ public class BsEducateController extends BaseController {
     /**
      * 删除教育
      */
-    @RequiresPermissions("system:educate:remove")
+    //@RequiresPermissions("system:educate:remove")
     @Log(title = "教育", businessType = BusinessType.DELETE)
     @DeleteMapping("/{rids}")
     public AjaxResult remove(@PathVariable Long[] rids) {

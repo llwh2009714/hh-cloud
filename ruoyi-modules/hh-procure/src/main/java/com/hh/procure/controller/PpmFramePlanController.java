@@ -49,7 +49,7 @@ public class PpmFramePlanController extends BaseController {
     /**
      * 查询框架计划列表
      */
-    @RequiresPermissions("system:plan:list")
+    //@RequiresPermissions("system:plan:list")
     @GetMapping("/list")
     public TableDataInfo list(PpmFramePlan ppmFramePlan) {
         startPage();
@@ -60,7 +60,7 @@ public class PpmFramePlanController extends BaseController {
     /**
      * 导出框架计划列表
      */
-    @RequiresPermissions("system:plan:export")
+    //@RequiresPermissions("system:plan:export")
     @Log(title = "框架计划", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, PpmFramePlan ppmFramePlan) {
@@ -72,7 +72,7 @@ public class PpmFramePlanController extends BaseController {
     /**
      * 获取框架计划详细信息
      */
-    @RequiresPermissions("system:plan:query")
+    //@RequiresPermissions("system:plan:query")
     @GetMapping(value = "/{jhId}")
     public AjaxResult getInfo(@PathVariable("jhId") Long jhId) {
         return success(ppmFramePlanService.selectPpmFramePlanByJhId(jhId));
@@ -81,7 +81,7 @@ public class PpmFramePlanController extends BaseController {
     /**
      * 新增框架计划
      */
-    @RequiresPermissions("system:plan:add")
+    //@RequiresPermissions("system:plan:add")
     @Log(title = "框架计划", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody PpmFramePlan ppmFramePlan) {
@@ -92,7 +92,7 @@ public class PpmFramePlanController extends BaseController {
     /**
      * 修改框架计划
      */
-    @RequiresPermissions("system:plan:edit")
+    //@RequiresPermissions("system:plan:edit")
     @Log(title = "框架计划", businessType = BusinessType.UPDATE)
     @Transactional
     @PutMapping
@@ -116,7 +116,7 @@ public class PpmFramePlanController extends BaseController {
     /**
      * 删除框架计划
      */
-    @RequiresPermissions("system:plan:remove")
+    //@RequiresPermissions("system:plan:remove")
     @Log(title = "框架计划", businessType = BusinessType.DELETE)
     @DeleteMapping("/{jhIds}")
     public AjaxResult remove(@PathVariable Long[] jhIds) {

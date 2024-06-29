@@ -47,7 +47,7 @@ public class BsOccupationController extends BaseController {
     /**
      * 导出职业列表
      */
-    @RequiresPermissions("system:occupation:export")
+    //@RequiresPermissions("system:occupation:export")
     @Log(title = "职业", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsOccupation bsOccupation) {
@@ -59,7 +59,7 @@ public class BsOccupationController extends BaseController {
     /**
      * 获取职业详细信息
      */
-    @RequiresPermissions("system:occupation:query")
+    //@RequiresPermissions("system:occupation:query")
     @GetMapping(value = "/{nid}")
     public AjaxResult getInfo(@PathVariable("nid") Long nid) {
         return success(bsOccupationService.selectBsOccupationByNid(nid));
@@ -68,7 +68,7 @@ public class BsOccupationController extends BaseController {
     /**
      * 新增职业
      */
-    @RequiresPermissions("system:occupation:add")
+    //@RequiresPermissions("system:occupation:add")
     @Log(title = "职业", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BsOccupation bsOccupation) {
@@ -78,7 +78,7 @@ public class BsOccupationController extends BaseController {
     /**
      * 修改职业
      */
-    @RequiresPermissions("system:occupation:edit")
+    //@RequiresPermissions("system:occupation:edit")
     @Log(title = "职业", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BsOccupation bsOccupation) {
@@ -88,7 +88,7 @@ public class BsOccupationController extends BaseController {
     /**
      * 删除职业
      */
-    @RequiresPermissions("system:occupation:remove")
+    //@RequiresPermissions("system:occupation:remove")
     @Log(title = "职业", businessType = BusinessType.DELETE)
     @DeleteMapping("/{nids}")
     public AjaxResult remove(@PathVariable Long[] nids) {

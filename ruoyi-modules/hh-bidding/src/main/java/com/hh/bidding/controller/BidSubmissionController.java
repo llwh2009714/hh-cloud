@@ -37,7 +37,7 @@ public class BidSubmissionController extends BaseController
     /**
      * 查询投递标书列表
      */
-//    @RequiresPermissions("system:submission:list")
+//    //@RequiresPermissions("system:submission:list")
     @GetMapping("/list")
     public TableDataInfo list(BidSubmission bidSubmission)
     {
@@ -49,7 +49,7 @@ public class BidSubmissionController extends BaseController
     /**
      * 导出投递标书列表
      */
-    @RequiresPermissions("system:submission:export")
+    //@RequiresPermissions("system:submission:export")
     @Log(title = "投递标书", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BidSubmission bidSubmission)
@@ -62,7 +62,7 @@ public class BidSubmissionController extends BaseController
     /**
      * 获取投递标书详细信息
      */
-    @RequiresPermissions("system:submission:query")
+    //@RequiresPermissions("system:submission:query")
     @GetMapping(value = "/{tdId}")
     public AjaxResult getInfo(@PathVariable("tdId") Long tdId)
     {
@@ -72,7 +72,7 @@ public class BidSubmissionController extends BaseController
     /**
      * 新增投递标书
      */
-//    @RequiresPermissions("system:submission:add")
+//    //@RequiresPermissions("system:submission:add")
     @Log(title = "投递标书", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BidSubmission bidSubmission)
@@ -83,7 +83,7 @@ public class BidSubmissionController extends BaseController
     /**
      * 修改投递标书
      */
-    @RequiresPermissions("system:submission:edit")
+    //@RequiresPermissions("system:submission:edit")
     @Log(title = "投递标书", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BidSubmission bidSubmission)
@@ -94,7 +94,7 @@ public class BidSubmissionController extends BaseController
     /**
      * 删除投递标书
      */
-    @RequiresPermissions("system:submission:remove")
+    //@RequiresPermissions("system:submission:remove")
     @Log(title = "投递标书", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{tdIds}")
     public AjaxResult remove(@PathVariable Long[] tdIds)

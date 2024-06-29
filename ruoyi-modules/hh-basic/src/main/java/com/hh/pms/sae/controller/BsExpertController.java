@@ -37,7 +37,7 @@ public class BsExpertController extends BaseController {
     /**
      * 查询专家列表
      */
-//    @RequiresPermissions("system:expert:list")
+//    //@RequiresPermissions("system:expert:list")
     @GetMapping("/list")
     public TableDataInfo list(BsExpert bsExpert) {
         startPage();
@@ -48,7 +48,7 @@ public class BsExpertController extends BaseController {
     /**
      * 导出专家列表
      */
-    @RequiresPermissions("system:expert:export")
+    //@RequiresPermissions("system:expert:export")
     @Log(title = "专家", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsExpert bsExpert) {
@@ -68,7 +68,7 @@ public class BsExpertController extends BaseController {
     /**
      * 新增专家
      */
-    @RequiresPermissions("system:expert:add")
+    //@RequiresPermissions("system:expert:add")
     @Log(title = "专家", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BsExpert bsExpert) {
@@ -87,7 +87,7 @@ public class BsExpertController extends BaseController {
     /**
      * 删除专家
      */
-    @RequiresPermissions("system:expert:remove")
+    //@RequiresPermissions("system:expert:remove")
     @Log(title = "专家", businessType = BusinessType.DELETE)
     @DeleteMapping("/{jids}")
     public AjaxResult remove(@PathVariable Long[] jids) {

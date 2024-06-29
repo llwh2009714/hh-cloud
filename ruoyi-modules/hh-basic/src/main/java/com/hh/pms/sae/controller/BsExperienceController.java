@@ -47,7 +47,7 @@ public class BsExperienceController extends BaseController {
     /**
      * 导出任职经历列表
      */
-    @RequiresPermissions("system:experience:export")
+    //@RequiresPermissions("system:experience:export")
     @Log(title = "任职经历", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsExperience bsExperience) {
@@ -59,7 +59,7 @@ public class BsExperienceController extends BaseController {
     /**
      * 获取任职经历详细信息
      */
-    @RequiresPermissions("system:experience:query")
+    //@RequiresPermissions("system:experience:query")
     @GetMapping(value = "/{qid}")
     public AjaxResult getInfo(@PathVariable("qid") Long qid) {
         return success(bsExperienceService.selectBsExperienceByQid(qid));
@@ -68,7 +68,7 @@ public class BsExperienceController extends BaseController {
     /**
      * 新增任职经历
      */
-    @RequiresPermissions("system:experience:add")
+    //@RequiresPermissions("system:experience:add")
     @Log(title = "任职经历", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BsExperience bsExperience) {
@@ -78,7 +78,7 @@ public class BsExperienceController extends BaseController {
     /**
      * 修改任职经历
      */
-    @RequiresPermissions("system:experience:edit")
+    //@RequiresPermissions("system:experience:edit")
     @Log(title = "任职经历", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BsExperience bsExperience) {
@@ -88,7 +88,7 @@ public class BsExperienceController extends BaseController {
     /**
      * 删除任职经历
      */
-    @RequiresPermissions("system:experience:remove")
+    //@RequiresPermissions("system:experience:remove")
     @Log(title = "任职经历", businessType = BusinessType.DELETE)
     @DeleteMapping("/{qids}")
     public AjaxResult remove(@PathVariable Long[] qids) {

@@ -47,7 +47,7 @@ public class BsFinancialStatusController extends BaseController {
     /**
      * 导出财务状态列表
      */
-    @RequiresPermissions("system:status:export")
+    //@RequiresPermissions("system:status:export")
     @Log(title = "财务状态", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsFinancialStatus bsFinancialStatus) {
@@ -59,7 +59,7 @@ public class BsFinancialStatusController extends BaseController {
     /**
      * 获取财务状态详细信息
      */
-    @RequiresPermissions("system:status:query")
+    //@RequiresPermissions("system:status:query")
     @GetMapping(value = "/{cId}")
     public AjaxResult getInfo(@PathVariable("cId") Long cId) {
         return success(bsFinancialStatusService.selectBsFinancialStatusByCId(cId));
@@ -68,7 +68,7 @@ public class BsFinancialStatusController extends BaseController {
     /**
      * 新增财务状态
      */
-    @RequiresPermissions("system:status:add")
+    //@RequiresPermissions("system:status:add")
     @Log(title = "财务状态", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BsFinancialStatus bsFinancialStatus) {
@@ -78,7 +78,7 @@ public class BsFinancialStatusController extends BaseController {
     /**
      * 修改财务状态
      */
-    @RequiresPermissions("system:status:edit")
+    //@RequiresPermissions("system:status:edit")
     @Log(title = "财务状态", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BsFinancialStatus bsFinancialStatus) {
@@ -88,7 +88,7 @@ public class BsFinancialStatusController extends BaseController {
     /**
      * 删除财务状态
      */
-    @RequiresPermissions("system:status:remove")
+    //@RequiresPermissions("system:status:remove")
     @Log(title = "财务状态", businessType = BusinessType.DELETE)
     @DeleteMapping("/{cIds}")
     public AjaxResult remove(@PathVariable Long[] cIds) {

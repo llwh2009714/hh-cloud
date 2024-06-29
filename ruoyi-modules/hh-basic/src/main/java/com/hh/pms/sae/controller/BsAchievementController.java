@@ -47,7 +47,7 @@ public class BsAchievementController extends BaseController {
     /**
      * 导出业绩列表
      */
-    @RequiresPermissions("system:achievement:export")
+    //@RequiresPermissions("system:achievement:export")
     @Log(title = "业绩", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     public void export(HttpServletResponse response, BsAchievement bsAchievement) {
@@ -59,7 +59,7 @@ public class BsAchievementController extends BaseController {
     /**
      * 获取业绩详细信息
      */
-    @RequiresPermissions("system:achievement:query")
+    //@RequiresPermissions("system:achievement:query")
     @GetMapping(value = "/{yjId}")
     public AjaxResult getInfo(@PathVariable("yjId") Long yjId) {
         return success(bsAchievementService.selectBsAchievementByYjId(yjId));
@@ -68,7 +68,7 @@ public class BsAchievementController extends BaseController {
     /**
      * 新增业绩
      */
-    @RequiresPermissions("system:achievement:add")
+    //@RequiresPermissions("system:achievement:add")
     @Log(title = "业绩", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody BsAchievement bsAchievement) {
@@ -78,7 +78,7 @@ public class BsAchievementController extends BaseController {
     /**
      * 修改业绩
      */
-    @RequiresPermissions("system:achievement:edit")
+    //@RequiresPermissions("system:achievement:edit")
     @Log(title = "业绩", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody BsAchievement bsAchievement) {
@@ -88,7 +88,7 @@ public class BsAchievementController extends BaseController {
     /**
      * 删除业绩
      */
-    @RequiresPermissions("system:achievement:remove")
+    //@RequiresPermissions("system:achievement:remove")
     @Log(title = "业绩", businessType = BusinessType.DELETE)
     @DeleteMapping("/{yjIds}")
     public AjaxResult remove(@PathVariable Long[] yjIds) {
