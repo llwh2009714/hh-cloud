@@ -91,7 +91,8 @@ public class PreAuthorizeAspect
         RequiresPermissions requiresPermissions = method.getAnnotation(RequiresPermissions.class);
         if (requiresPermissions != null)
         {
-            AuthUtil.checkPermi(requiresPermissions);
+            //屏蔽掉权限校验
+            // AuthUtil.checkPermi(requiresPermissions);
         }
     }
 }
