@@ -15,6 +15,7 @@ cp ../sql/ry_config_20220929.sql ./mysql/db
 # copy html
 echo "begin copy html "
 cp -r ../ruoyi-ui/dist/** ./nginx/html/dist
+cp -r ../honghu-bidding-ui/dist/** ./nginx-index/html/dist
 
 
 # copy jar
@@ -38,4 +39,7 @@ cp ../ruoyi-modules/ruoyi-job/target/ruoyi-modules-job.jar ./ruoyi/modules/job/j
 
 echo "begin copy ruoyi-modules-gen "
 cp ../ruoyi-modules/ruoyi-gen/target/ruoyi-modules-gen.jar ./ruoyi/modules/gen/jar
+
+echo "begin copy hh-basic "
+cp ../ruoyi-modules/hh-basic/target/hh-basic.jar ./ruoyi/hh-basic/jar
 
