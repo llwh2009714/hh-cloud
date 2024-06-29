@@ -39,6 +39,9 @@ services:
     environment:
       MYSQL_DATABASE: 'ry-cloud'
       MYSQL_ROOT_PASSWORD: 123456
+    restart: always
+    mem_reservation: 3g
+    cpu_count: 2
   ruoyi-redis:
     container_name: ruoyi-redis
     image: redis
