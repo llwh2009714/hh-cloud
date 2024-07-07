@@ -48,7 +48,7 @@ services:
     build:
       context: ./redis
     ports:
-      - "6379:6379"
+      - "6380:6380"
     volumes:
       - ./redis/conf/redis.conf:/home/ruoyi/redis/redis.conf
       - ./redis/data:/data
