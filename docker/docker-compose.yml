@@ -28,17 +28,15 @@ services:
       - ./mysql/logs:/logs
       - ./mysql/data:/var/lib/mysql
       - ./mysql/db:/docker-entrypoint-initdb.d
-      - /etc/localtime:/etc/localtime:ro
     command: [
-      'mysqld',
-      '--innodb-buffer-pool-size=80M',
-      '--character-set-server=utf8mb4',
-      '--collation-server=utf8mb4_unicode_ci',
-      '--default-time-zone=+8:00',
-      '--lower-case-table-names=1'
-    ]
+          'mysqld',
+          '--innodb-buffer-pool-size=80M',
+          '--character-set-server=utf8mb4',
+          '--collation-server=utf8mb4_unicode_ci',
+          '--default-time-zone=+8:00',
+          '--lower-case-table-names=1'
+        ]
     environment:
-      TZ: Asia/Shanghai
       MYSQL_DATABASE: 'ry-cloud'
       MYSQL_ROOT_PASSWORD: 123456
     restart: always
@@ -55,7 +53,6 @@ services:
       - ./redis/conf/redis.conf:/home/ruoyi/redis/redis.conf
       - ./redis/data:/data
     command: redis-server /home/ruoyi/redis/redis.conf
-
   ruoyi-nginx:
     container_name: ruoyi-nginx
     image: nginx
@@ -136,6 +133,17 @@ services:
       - ruoyi-mysql
     links:
       - ruoyi-mysql
+  ruoyi-modules-hhbasic:
+    container_name: ruoyi-modules-hhbasic
+    build:
+      context: ./ruoyi/hh-basic
+      dockerfile: dockerfile
+    ports:
+      - "9999:9999"
+    depends_on:
+      - ruoyi-mysql
+    links:
+      - ruoyi-mysql
   ruoyi-modules-job:
     container_name: ruoyi-modules-job
     build:
@@ -155,7 +163,7 @@ services:
     ports:
       - "9300:9300"
     volumes:
-      - ./ruoyi/uploadPath:/home/ruoyi/uploadPath
+    - ./ruoyi/uploadPath:/home/ruoyi/uploadPath
   ruoyi-visual-monitor:
     container_name: ruoyi-visual-monitor
     build:
