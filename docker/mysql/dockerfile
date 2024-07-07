@@ -2,7 +2,7 @@
 FROM mysql:5.7
 # author
 MAINTAINER ruoyi
-EXPOSE 3309
+EXPOSE 3306
 
 # 执行sql脚本
 ADD ./db/*.sql /docker-entrypoint-initdb.d/
