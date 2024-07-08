@@ -35,7 +35,7 @@ module.exports = {
     open: true,
     proxy: {
       '/prod-api': {
-        target: 'http://39.107.115.201',
+        target: 'http://47.95.66.70',
         changeOrigin: true,
         pathRewrite: {
           '^prod-api': ''
