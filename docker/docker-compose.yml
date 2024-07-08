@@ -155,6 +155,30 @@ services:
       - ruoyi-mysql
     links:
       - ruoyi-mysql
+
+  ruoyi-modules-hhnonbidding:
+    container_name: ruoyi-modules-hhnonbidding
+    build:
+      context: ./ruoyi/hh-nonbidding
+      dockerfile: dockerfile
+    ports:
+      - "9211:9211"
+    depends_on:
+      - ruoyi-mysql
+    links:
+      - ruoyi-mysql
+
+  ruoyi-modules-hhprocure:
+    container_name: ruoyi-modules-hhprocure
+    build:
+      context: ./ruoyi/hh-procure
+      dockerfile: dockerfile
+    ports:
+      - "9230:9230"
+    depends_on:
+      - ruoyi-mysql
+    links:
+      - ruoyi-mysql
   ruoyi-modules-job:
     container_name: ruoyi-modules-job
     build:

@@ -46,3 +46,9 @@ cp ../ruoyi-modules/hh-basic/target/hh-basic.jar ./ruoyi/hh-basic/jar
 
 echo "begin copy hh-bidding "
 cp ../ruoyi-modules/hh-bidding/target/hh-bidding.jar ./ruoyi/hh-bidding/jar
+
+echo "begin copy hh-nonbidding "
+cp ../ruoyi-modules/hh-nonbidding/target/hh-nonbidding.jar ./ruoyi/hh-nonbidding/jar
+
+echo "begin copy hh-procure "
+cp ../ruoyi-modules/hh-procure/target/hh-procure.jar ./ruoyi/hh-procure/jar
