@@ -43,3 +43,6 @@ cp ../ruoyi-modules/ruoyi-gen/target/ruoyi-modules-gen.jar ./ruoyi/modules/gen/j
 echo "begin copy hh-basic "
 cp ../ruoyi-modules/hh-basic/target/hh-basic.jar ./ruoyi/hh-basic/jar
 
+
+echo "begin copy hh-bidding "
+cp ../ruoyi-modules/hh-bidding/target/hh-bidding.jar ./ruoyi/hh-bidding/jar
