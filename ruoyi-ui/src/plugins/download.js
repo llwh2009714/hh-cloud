@@ -5,7 +5,8 @@ import { getToken } from '@/utils/auth'
 import errorCode from '@/utils/errorCode'
 import { blobValidate } from "@/utils/ruoyi";
 
-const baseURL = process.env.VUE_APP_BASE_API
+// const baseURL = process.env.VUE_APP_BASE_API
+const baseURL = "/prod-api"
 
 export default {
   zip(url, name) {

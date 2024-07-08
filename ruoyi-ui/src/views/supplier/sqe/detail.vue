@@ -541,7 +541,8 @@ export default {
           Authorization: "Bearer " + getToken()
         },
         // 上传的地址
-        url: process.env.VUE_APP_BASE_API + "/basic/supplier/upload1",
+        // url: process.env.VUE_APP_BASE_API + "/basic/supplier/upload1",
+        url: "/prod-api" + "/basic/supplier/upload1",
       }
     }
   },
@@ -572,7 +573,8 @@ export default {
       })
       let urls = files.join(',')
       let name = encodeURIComponent(urls);
-      var url = `http://localhost:8080/basic/supplier/downloadZip?url=${name}`;
+      // var url = `http://localhost:8080/basic/supplier/downloadZip?url=${name}`;
+      var url = `http://47.95.66.70/prod-api/basic/supplier/downloadZip?url=${name}`;
       const a = document.createElement('a')
       a.setAttribute('target', '_blank')
       a.setAttribute('href', url)

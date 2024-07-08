@@ -4,13 +4,13 @@
     <!--头部第二行 搜索区域-->
     <div  class="bottom" style="width: 1400px;display: flex;justify-content: space-between;align-items: center;margin-top: 25px">
       <h1 class="logoArea">
-        <router-link class="logo" title="鸿鹄招投标平台" to="/">
+        <router-link class="logo" title="XX招投标平台" to="/">
           <el-image
               style="width: 100px; height: auto;vertical-align: middle"
               src="../images/hh.png"
           ></el-image>
         </router-link>
-        鸿鹄招投标平台
+        XX招投标平台
       </h1>
       <div style="display: flex;align-items: center;">
         <div class="searchArea">

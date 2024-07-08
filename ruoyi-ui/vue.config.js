@@ -25,13 +25,12 @@ module.exports = {
   assetsDir: 'static',
   // 是否开启eslint保存检测，有效值：ture | false | 'error'
   lintOnSave: process.env.NODE_ENV === 'development',
-  // lintOnSave: process.env.NODE_ENV === 'production',
   // 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
   productionSourceMap: false,
   // webpack-dev-server 相关配置
   devServer: {
     host: '0.0.0.0',
-    port: 8080,
+    port: port,
     open: true,
     proxy: {
       '/prod-api': {
@@ -41,9 +40,19 @@ module.exports = {
           '^prod-api': ''
         }
       }
+      
+      // target: 'http://39.107.115.201',
+      // detail: https://cli.vuejs.org/config/#devserver-proxy
+      // [process.env.VUE_APP_BASE_API]: {
+      //   // target: `http://localhost:8080`,
+      //   target: 'http://39.107.115.201',
+      //   changeOrigin: true,
+      //   // pathRewrite: {
+      //   //   ['^' + process.env.VUE_APP_BASE_API]: ''
+      //   // }
+      // }
     },
-    historyApiFallback: true,
-    allowedHosts:"all"
+    // disableHostCheck: true
   },
   css: {
     loaderOptions: {
@@ -57,10 +66,7 @@ module.exports = {
     resolve: {
       alias: {
         '@': resolve('src')
-      },
-      fallback: {
-        path: require.resolve("path-browserify"),
-      },
+      }
     },
     plugins: [
       // http://doc.ruoyi.vip/ruoyi-vue/other/faq.html#使用gzip解压缩静态文件

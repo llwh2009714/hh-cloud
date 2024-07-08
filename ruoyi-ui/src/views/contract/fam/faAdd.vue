@@ -198,7 +198,8 @@ export default {
   name: 'AddFa',
   data() {
     return {
-      url: process.env.VUE_APP_BASE_API + '/basic/supplier/upload1',
+      // url: process.env.VUE_APP_BASE_API + '/basic/supplier/upload1',
+      url: "/prod-api" + '/basic/supplier/upload1',
       oTotalprice: 0,
       size: '0',
       labelStyle: {
@@ -211,7 +212,7 @@ export default {
         tid: null,
         oCode: null,
         oName: null,
-        oSubject: '鸿鹄科技有限公司',
+        oSubject: 'XX科技有限公司',
         hid: null,
         hName: null,
         oStartdate: null,

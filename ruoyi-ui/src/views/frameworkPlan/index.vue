@@ -491,7 +491,8 @@ export default {
         // 设置上传的请求头部
         headers: {Authorization: "Bearer " + getToken()},
         // 上传的地址
-        url: process.env.VUE_APP_BASE_API + "/ppm/file/upload",
+        // url: process.env.VUE_APP_BASE_API + "/ppm/file/upload",
+        url: "/prod-api" + "/ppm/file/upload",
         // 上传的文件列表
         fileList: [],
         //上传成功列表

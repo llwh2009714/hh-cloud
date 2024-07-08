@@ -43,7 +43,7 @@ import {bus} from "@/main";
 export default {
   data() {
     return {
-      imgUrl: process.env.VUE_APP_BASE_API + '/basic/supplier/code?time=' + new Date(),
+      imgUrl: "/prod-api" + '/basic/supplier/code?time=' + new Date(),
       ruleForm: {
         pass: '',
         userName: '',
@@ -94,7 +94,7 @@ export default {
       this.$refs[formName].resetFields();
     },
     resetImg() {
-      this.imgUrl = process.env.VUE_APP_BASE_API + '/basic/supplier/code?time=' + new Date();
+      this.imgUrl = "/prod-api" + '/basic/supplier/code?time=' + new Date();
     }
   }
 }

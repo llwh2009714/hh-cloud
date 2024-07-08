@@ -288,7 +288,8 @@ export default {
           Authorization: "Bearer " + getToken()
         },
         // 上传的地址
-        url: process.env.VUE_APP_BASE_API + "/bidding/documents/upload1",
+        // url: process.env.VUE_APP_BASE_API + "/bidding/documents/upload1",
+        url: "/prod-api" + '/bidding/documents/upload1',
       }
     };
   },

@@ -45,7 +45,7 @@ export function delCandidate(zid) {
 
 export function suppCand(sid) {
     return request({
-        url: '/bidding/candidate/suppCand/' + sid,
+        url: '/bidding/candidate/suppCand/?sid=' + sid,
         method: 'get'
     })
 }

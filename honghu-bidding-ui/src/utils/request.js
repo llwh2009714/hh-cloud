@@ -3,8 +3,9 @@ import axios from "axios";
 
 axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
 const  service = axios.create({
-    baseURL:process.env.VUE_APP_BASE_API,
-    timeout: 10000,
+    // baseURL:process.env.VUE_APP_BASE_API,
+    baseURL:'/prod-api',
+    timeout: 50000,
 })
 
 // 添加请求拦截器

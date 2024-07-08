@@ -389,7 +389,8 @@ import { getOperator } from '../../api/system/operator'
 export default {
   data() {
     return {
-      url: process.env.VUE_APP_BASE_API + '/basic/supplier/upload1',
+      // url: process.env.VUE_APP_BASE_API + '/basic/supplier/upload1',
+      url: "/prod-api" + '/basic/supplier/upload1',
       //招标项目ID
       gid: this.$route.query.gid,
       //合同标的表格
@@ -504,7 +505,7 @@ export default {
       //合同签署状态
       qsFormData: {
         gnSignatorycount: 0, //签署方数
-        gnSub: '鸿鹄科技有限公司',//我方主体
+        gnSub: 'XX科技有限公司',//我方主体
         gnPbid: null,//乙方供应商ID
         gnPbname: null,//乙方名称
         gnPbaddress: null,//乙方地址
@@ -971,7 +972,7 @@ export default {
     payAddRow() {
       const newRow = {}
       newRow.id = this.payTableData.length + 1
-      newRow.payer = '鸿鹄科技有限公司'
+      newRow.payer = 'XX科技有限公司'
       newRow.hName = this.qsFormData.gnPbname
       newRow.hid = this.form.hid
       this.payTableData.push(newRow)

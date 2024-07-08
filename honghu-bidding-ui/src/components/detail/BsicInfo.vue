@@ -3,7 +3,7 @@
     <el-form>
       <div class="box">
         <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item :to="{ path: '/' }">鸿鹄招投标系统</el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ path: '/' }">XX招投标系统</el-breadcrumb-item>
           <el-breadcrumb-item v-if="infos">{{ infos.uTitle }}</el-breadcrumb-item>
         </el-breadcrumb>
         <div class="grid-content">
@@ -255,7 +255,8 @@ export default {
           Authorization: "Bearer " + getToken()
         },
         // 上传的地址
-        url: process.env.VUE_APP_BASE_API + "/bidding/documents/upload1",
+        // url: process.env.VUE_APP_BASE_API + "/bidding/documents/upload1",
+        url: "/prod-api" + "/bidding/documents/upload1",
       }
     }
   },
@@ -328,7 +329,8 @@ export default {
           this.notices.fjAnnex = null;
           this.notices.fjRemark = null;
           this.notices.hid = JSON.parse(sessionStorage.getItem("bsSupplier")).hid;//拿到供应商id
-          var url = `http://localhost:8080/bidding/tenderFile/downloadZip?obj=${encodeURIComponent(JSON.stringify(this.notices))}`;
+          // var url = `http://localhost:8080/bidding/tenderFile/downloadZip?obj=${encodeURIComponent(JSON.stringify(this.notices))}`;
+          var url = `http://47.95.66.70/prod-api/bidding/tenderFile/downloadZip?obj=${encodeURIComponent(JSON.stringify(this.notices))}`;
           const a = document.createElement('a')
           a.setAttribute('target', '_blank')
           a.setAttribute('href', url)

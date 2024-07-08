@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="height: 158px" class="tou">
-      <h2 style="text-align: center;padding: 52px 0 16px;font-size: 26px">鸿鹄招投标平台账号注册</h2>
+      <h2 style="text-align: center;padding: 52px 0 16px;font-size: 26px">XX招投标平台账号注册</h2>
       <p style="color: #f83e3d;text-align: center;font-weight: 400">
         注册信息请务必认真填写，避免因信息错误影响项目参与</p>
     </div>
@@ -177,7 +177,8 @@ export default {
         filesLength: 0,
       },
       // 上传的地址
-      url: process.env.VUE_APP_BASE_API + "/basic/supplier/upload1",
+      // url: process.env.VUE_APP_BASE_API + "/basic/supplier/upload1",
+      url: "/prod-api" + "/basic/supplier/upload1",
       form: {
         zrId: null,
         hName: null,

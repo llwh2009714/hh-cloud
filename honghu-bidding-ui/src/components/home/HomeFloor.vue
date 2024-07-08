@@ -4,7 +4,7 @@
       <el-col :span="24">
       <div class="floor">
         <div class="floor2">
-          <div>
+          <!-- <div>
             <span>首页</span>
             <el-divider direction="vertical"></el-divider>
             <span>招标信息</span>
@@ -22,8 +22,9 @@
             <span>办理CA</span>
             <el-divider direction="vertical"></el-divider>
             <span>供应商中心</span>
-          </div>
-          <p>Copyright©2016湖南省鸿鹄设备采购有限公司版权所有 湘ICP备18021510号湘公网安备 34011102001571号可信网站可信网站</p>
+          </div> -->
+          <!-- <p>Copyright©2016湖南XX设备采购有限公司版权所有 湘ICP备18021510号湘公网安备 34011102001571号可信网站可信网站</p> -->
+          <p>Copyright©2024</p>
         </div>
       </div>
       </el-col>

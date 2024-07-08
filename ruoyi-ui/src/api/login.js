@@ -57,6 +57,6 @@ export function getCodeImg() {
       isToken: false
     },
     method: 'get',
-    timeout: 50000
+    timeout: 20000
   })
 }

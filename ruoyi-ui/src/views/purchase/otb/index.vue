@@ -431,7 +431,9 @@ export default {
         return;
       }
       let name = encodeURIComponent(this.fileUrls);
-      var url = `http://localhost:8080/ppm/file/downloadFiles?file=${name}`;
+      // var url = `http://localhost:8080/ppm/file/downloadFiles?file=${name}`;
+      var url = `http://47.95.66.70/prod-api/ppm/file/downloadFiles?file=${name}`;
+      
       const a = document.createElement('a')
       a.setAttribute('target', '_blank')
       a.setAttribute('href', url)

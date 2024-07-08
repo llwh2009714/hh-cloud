@@ -72,7 +72,8 @@ export default {
     return {
       number: 0,
       uploadList: [],
-      uploadFileUrl: process.env.VUE_APP_BASE_API + "/file/upload", // 上传文件服务器地址
+      // uploadFileUrl: process.env.VUE_APP_BASE_API + "/file/upload", // 上传文件服务器地址
+      uploadFileUrl: "/prod-api" + "/file/upload",
       headers: {
         Authorization: "Bearer " + getToken(),
       },

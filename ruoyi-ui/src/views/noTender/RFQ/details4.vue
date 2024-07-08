@@ -197,7 +197,8 @@ export default {
       show: false,
       //业务类型字典数据
       gTenderTypes: [],
-      url: process.env.VUE_APP_BASE_API + '/basic/supplier/upload1',
+      // url: process.env.VUE_APP_BASE_API + '/basic/supplier/upload1',
+      url: "/prod-api" + '/basic/supplier/upload1',
       //招标项目ID
       gid: this.$route.query.gid,
       //寻源方式
@@ -416,7 +417,7 @@ export default {
         } else {
           this.form.gIsPublic = '邀请'
         }
-        this.form.gCompany = '鸿鹄科技有限公司'
+        this.form.gCompany = 'XX科技有限公司'
         this.gfId = this.form.gCode
         // this.getComPubAttachments()
         // this.selectSupplier(this.hid)

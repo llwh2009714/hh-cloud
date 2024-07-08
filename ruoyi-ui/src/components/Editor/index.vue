@@ -60,7 +60,8 @@ export default {
   },
   data() {
     return {
-      uploadUrl: process.env.VUE_APP_BASE_API + "/file/upload", // 上传的图片服务器地址
+      // uploadUrl: process.env.VUE_APP_BASE_API + "/file/upload", // 上传的图片服务器地址
+      uploadUrl: "/prod-api" + "/file/upload",
       headers: {
         Authorization: "Bearer " + getToken()
       },
